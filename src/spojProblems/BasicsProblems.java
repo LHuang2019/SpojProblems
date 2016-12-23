@@ -43,6 +43,7 @@ public class BasicsProblems {
 
     /**
      * Method for solving Character Patterns Act One
+     * 
      * @throws NumberFormatException
      * @throws IOException
      */
@@ -50,18 +51,17 @@ public class BasicsProblems {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int numOfInput = Integer.parseInt(reader.readLine());
-        
+
         int[][] array = new int[numOfInput][2];
-        
-        for (int x = 0; x < array.length; x++)
-        {
+
+        for (int x = 0; x < array.length; x++) {
             String[] placeHolder = reader.readLine().split(" ");
             array[x][0] = placeHolder[0] != null ? Integer.parseInt(placeHolder[0]) : 0;
             array[x][1] = placeHolder[1] != null ? Integer.parseInt(placeHolder[1]) : 0;
         }
-        
+
         char character = '*';
-        
+
         for (int k = 0; k < array.length; k++) {
             for (int i = 0; i < array[k][0]; i++) {
                 character = i % 2 == 1 ? '.' : '*';
@@ -75,5 +75,36 @@ public class BasicsProblems {
             character = '*';
         }
     }
+    
+    /**
+     * Method for solving Character Patterns Act Two
+     * @throws NumberFormatException
+     * @throws IOException
+     */
+    public static void characterPatternsActTwo() throws NumberFormatException, IOException {
 
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int numOfInput = Integer.parseInt(reader.readLine());
+
+        int[][] array = new int[numOfInput][2];
+
+        for (int x = 0; x < array.length; x++) {
+            String[] placeHolder = reader.readLine().split(" ");
+            array[x][0] = placeHolder[0] != null ? Integer.parseInt(placeHolder[0]) : 0;
+            array[x][1] = placeHolder[1] != null ? Integer.parseInt(placeHolder[1]) : 0;
+        }
+
+        char character = '*';
+
+        for (int k = 0; k < array.length; k++) {
+            for (int i = 0; i < array[k][0]; i++) {
+                for (int j = 0; j < array[k][1]; j++) {
+                    character = (i != 0 && i != array[k][0] - 1 && j != 0 && j != array[k][1] - 1) ? '.' : '*';
+                    System.out.print(character);
+                }
+                System.out.println();
+            }
+            System.out.println();
+        }
+    }
 }
