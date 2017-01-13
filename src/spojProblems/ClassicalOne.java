@@ -2,6 +2,7 @@ package spojProblems;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Stack;
 
 /**
  * Class which has the solution for classical problems
@@ -57,5 +58,48 @@ public class ClassicalOne {
             
             System.out.println();
         }
+	}
+	
+	public static void TransformTheExpression () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int numOfInput = Integer.parseInt(reader.readLine());
+		
+		Stack<Character> stringStack = new Stack<Character>();
+		boolean condition = false;
+		
+		for (int x = 0; x < numOfInput; x++)
+		{
+			String expression = reader.readLine();
+			for (int i = 0; i < expression.length(); i++)
+			{
+				char currentChar = expression.charAt(i);
+				if (Character.isLetter(currentChar))
+					System.out.print(currentChar);
+				else if (currentChar == ')' && !stringStack.isEmpty())
+				{	
+					condition = false;
+					System.out.print(stringStack.pop());
+				}
+				else if (currentChar == '(')
+					condition = true;
+				else if (currentChar == '^')
+					stringStack.push(currentChar);
+				else if (currentChar == '/' || currentChar == '*')
+				{
+					if (condition && stringStack.peek() == '^')
+						System.out.print(stringStack.pop());
+					stringStack.push(currentChar);
+				}
+				else
+				{
+					if (condition && !(stringStack.peek() == '-' || stringStack.peek() == '+'))
+						System.out.print(stringStack.pop());
+					stringStack.push(currentChar);
+				}
+					
+			}
+			
+		}
 	}
 }
