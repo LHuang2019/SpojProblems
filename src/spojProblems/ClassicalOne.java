@@ -106,6 +106,11 @@ public class ClassicalOne {
 		}
 	}
 	
+	/**
+	 * Unfinished
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
 	public static void TheNextPalindromeNew () throws NumberFormatException, IOException
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -152,6 +157,11 @@ public class ClassicalOne {
 		}
 	}
 	
+	/***
+	 * Unfinished
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
 	public static void TheNextPalindrome () throws NumberFormatException, IOException
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -169,25 +179,11 @@ public class ClassicalOne {
 			while (!condition)
 			{
 				currentNum++;
-				condition = TheNextPalindromeCreator(currentNum);
+				condition = ProblemHelper.palindromeIntChecker(currentNum);
 			}
 			
 			System.out.println(currentNum);
 		}
 	}
-	
-	private static boolean TheNextPalindromeCreator (int input)
-	{
-		int num = input;
-		int placeHolder = 0;
-		int rev = 0;
 
-		while (num > 0)
-		{
-			placeHolder = num % 10;
-			rev = rev * 10 + placeHolder;
-			num = num / 10;
-		}    
-		return rev == input;
-	}
 }
