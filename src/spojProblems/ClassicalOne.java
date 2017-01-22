@@ -14,7 +14,7 @@ public class ClassicalOne {
 	/**
 	 * Solution for classical -> Life, Universe, and Everything
 	 */
-	public static void LifeUniverseAndEverything() throws NumberFormatException, IOException
+	public static void lifeUniverseAndEverything() throws NumberFormatException, IOException
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		int input = Integer.parseInt(reader.readLine());
@@ -31,7 +31,7 @@ public class ClassicalOne {
 	 * @throws NumberFormatException
 	 * @throws IOException
 	 */
-	public static void PrimeGenerator () throws NumberFormatException, IOException
+	public static void primeGenerator () throws NumberFormatException, IOException
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		int numOfInput = Integer.parseInt(reader.readLine());
@@ -65,7 +65,7 @@ public class ClassicalOne {
 	 * @throws NumberFormatException
 	 * @throws IOException
 	 */
-	public static void TransformTheExpression () throws NumberFormatException, IOException
+	public static void transformTheExpression () throws NumberFormatException, IOException
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		int numOfInput = Integer.parseInt(reader.readLine());
@@ -111,7 +111,7 @@ public class ClassicalOne {
 	 * @throws NumberFormatException
 	 * @throws IOException
 	 */
-	public static void TheNextPalindromeNew () throws NumberFormatException, IOException
+	public static void theNextPalindromeNew () throws NumberFormatException, IOException
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		int numOfInput = Integer.parseInt(reader.readLine());
@@ -162,7 +162,7 @@ public class ClassicalOne {
 	 * @throws NumberFormatException
 	 * @throws IOException
 	 */
-	public static void TheNextPalindrome () throws NumberFormatException, IOException
+	public static void theNextPalindrome () throws NumberFormatException, IOException
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		int numOfInput = Integer.parseInt(reader.readLine());
