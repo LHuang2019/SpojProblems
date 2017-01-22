@@ -60,6 +60,11 @@ public class ClassicalOne {
         }
 	}
 	
+	/**
+	 * Unfinished
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
 	public static void TransformTheExpression () throws NumberFormatException, IOException
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -96,10 +101,93 @@ public class ClassicalOne {
 					if (condition && !(stringStack.peek() == '-' || stringStack.peek() == '+'))
 						System.out.print(stringStack.pop());
 					stringStack.push(currentChar);
+				}	
+			}
+		}
+	}
+	
+	public static void TheNextPalindromeNew () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int numOfInput = Integer.parseInt(reader.readLine());
+		
+		for (int i = 0; i < numOfInput; i++)
+		{
+			int firstInt = 0;
+			int secInt = 0;
+			
+			String currentNumString = reader.readLine();
+			int[] currentNumArray = new int[currentNumString.length()];
+			for (int x = 0; x < currentNumArray.length; x++)
+				currentNumArray[x] = currentNumString.charAt(i) - '0';
+			
+			for (int j = 0; j < currentNumArray.length / 2; j++)
+			{
+				firstInt = firstInt * 10 + currentNumArray[j];
+				secInt = secInt * 10 + currentNumArray[j + currentNumArray.length / 2];
+			}
+			if (firstInt > secInt)	
+				for (int k = 0; k < currentNumArray.length / 2; k++)
+					currentNumArray[currentNumArray.length - k - 1] = currentNumArray[k];
+			else if (firstInt < secInt)
+			{
+				if (currentNumArray.length % 2 == 1)
+				{
+					firstInt = firstInt * 10 + currentNumArray[currentNumArray.length / 2 + 1];
+					currentNumArray[currentNumArray.length / 2 + 1] = (currentNumArray[currentNumArray.length / 2 + 1] + 1) % 10;
 				}
-					
+				firstInt += 1;
+				for (int y = 0; y < currentNumArray.length / 2; y++)
+				{
+					currentNumArray[currentNumArray.length / 2 - y] = firstInt % 10;
+					firstInt /= 10;
+				}
+				for (int z = 0; z < currentNumArray.length / 2; z++)
+					currentNumArray[currentNumArray.length - z - 1] = currentNumArray[z];
 			}
 			
+			for (int a = 0; a < currentNumArray.length; a++)
+				System.out.print(currentNumArray[a]);
+			System.out.println();
 		}
+	}
+	
+	public static void TheNextPalindrome () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int numOfInput = Integer.parseInt(reader.readLine());
+		boolean condition = false;
+		
+		for (int i = 0; i < numOfInput; i++)
+		{
+			condition = false;
+			double currentDouble = Double.parseDouble(reader.readLine());
+			if (currentDouble > Integer.MAX_VALUE)
+				break;
+			int currentNum = (int) currentDouble;
+			
+			while (!condition)
+			{
+				currentNum++;
+				condition = TheNextPalindromeCreator(currentNum);
+			}
+			
+			System.out.println(currentNum);
+		}
+	}
+	
+	private static boolean TheNextPalindromeCreator (int input)
+	{
+		int num = input;
+		int placeHolder = 0;
+		int rev = 0;
+
+		while (num > 0)
+		{
+			placeHolder = num % 10;
+			rev = rev * 10 + placeHolder;
+			num = num / 10;
+		}    
+		return rev == input;
 	}
 }
