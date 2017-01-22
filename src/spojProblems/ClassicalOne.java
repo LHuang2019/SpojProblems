@@ -186,4 +186,37 @@ public class ClassicalOne {
 		}
 	}
 
+	/**
+	 * Solution for classical -> Factorial, ID 11
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void factorial () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int numOfInput = Integer.parseInt(reader.readLine());
+		boolean condition = false;
+		double power = 1; 
+		int currentInput = 0;
+		int currentOutput = 0;
+		
+		for (int i = 0; i < numOfInput; i++)
+		{
+			currentInput = Integer.parseInt(reader.readLine());
+			while (!condition)
+			{
+				if (currentInput / Math.pow(5.0, power) >= 1)
+				{
+					currentOutput += (int)(currentInput / Math.pow(5.0, power));
+					power++;
+				}
+				else
+					condition = true;
+			}
+			System.out.println(currentOutput);
+			condition = false;
+			power = 1;
+			currentOutput = 0;
+		}
+	}
 }
