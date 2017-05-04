@@ -2,6 +2,7 @@ package spojProblems;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigInteger;
 import java.util.Stack;
 
 /**
@@ -217,6 +218,26 @@ public class ClassicalOne {
 			condition = false;
 			power = 1;
 			currentOutput = 0;
+		}
+	}
+
+	/**
+	 * Solution for classical -> Small Factorials, ID 24
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void smallFactorial () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int numInput = Integer.parseInt(reader.readLine());
+		for (int i = 0; i < numInput; i++)
+		{
+			int currentInput = Integer.parseInt(reader.readLine());
+			BigInteger value = BigInteger.valueOf(1);
+			for (int j = 1; j <= currentInput; j++)
+				value = value.multiply(BigInteger.valueOf(j));
+			
+			System.out.println(value);
 		}
 	}
 }
