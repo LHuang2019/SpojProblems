@@ -11,233 +11,251 @@ import java.util.Stack;
  * @version 1.7.2017
  */
 public class ClassicalOne {
-	
-	/**
-	 * Solution for classical -> Life, Universe, and Everything
-	 */
-	public static void lifeUniverseAndEverything() throws NumberFormatException, IOException
-	{
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		int input = Integer.parseInt(reader.readLine());
-		
-		while (input != 42)
-		{
-			System.out.println(input);
-			input = Integer.parseInt(reader.readLine());
-		}
-	}
-	
-	/**
-	 * Solution for classical -> Prime Generator
-	 * @throws NumberFormatException
-	 * @throws IOException
-	 */
-	public static void primeGenerator () throws NumberFormatException, IOException
-	{
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		int numOfInput = Integer.parseInt(reader.readLine());
-		
+
+    /**
+     * Solution for classical -> Life, Universe, and Everything
+     */
+    public static void lifeUniverseAndEverything() throws NumberFormatException, IOException
+    {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int input = Integer.parseInt(reader.readLine());
+
+        while (input != 42)
+        {
+            System.out.println(input);
+            input = Integer.parseInt(reader.readLine());
+        }
+    }
+
+    /**
+     * Solution for classical -> Prime Generator
+     * @throws NumberFormatException
+     * @throws IOException
+     */
+    public static void primeGenerator () throws NumberFormatException, IOException
+    {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int numOfInput = Integer.parseInt(reader.readLine());
+
         int[][] array = new int[numOfInput][2];
 
         for (int x = 0; x < array.length; x++) 
         {
             String[] placeHolder = reader.readLine().split(" ");
-        
+
             LOOP1: for (int i = Integer.parseInt(placeHolder[0]); i <= Integer.parseInt(placeHolder[1]); i++)
                 if (i == 2)
-                	System.out.println(i);
+                    System.out.println(i);
                 else if (i % 2 == 0)
-                	continue;
+                    continue;
                 else if(i > 2)
                 {
-                	for (int j = 3; j <= Math.sqrt(i); j += 2)
-                		if (i % j == 0)
-                			continue LOOP1;
-                
-                	System.out.println(i);
+                    for (int j = 3; j <= Math.sqrt(i); j += 2)
+                        if (i % j == 0)
+                            continue LOOP1;
+
+                    System.out.println(i);
                 }
-            
+
             System.out.println();
         }
-	}
-	
-	/**
-	 * Unfinished
-	 * @throws NumberFormatException
-	 * @throws IOException
-	 */
-	public static void transformTheExpression () throws NumberFormatException, IOException
-	{
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		int numOfInput = Integer.parseInt(reader.readLine());
-		
-		Stack<Character> stringStack = new Stack<Character>();
-		boolean condition = false;
-		
-		for (int x = 0; x < numOfInput; x++)
-		{
-			String expression = reader.readLine();
-			for (int i = 0; i < expression.length(); i++)
-			{
-				char currentChar = expression.charAt(i);
-				if (Character.isLetter(currentChar))
-					System.out.print(currentChar);
-				else if (currentChar == ')' && !stringStack.isEmpty())
-				{	
-					condition = false;
-					System.out.print(stringStack.pop());
-				}
-				else if (currentChar == '(')
-					condition = true;
-				else if (currentChar == '^')
-					stringStack.push(currentChar);
-				else if (currentChar == '/' || currentChar == '*')
-				{
-					if (condition && stringStack.peek() == '^')
-						System.out.print(stringStack.pop());
-					stringStack.push(currentChar);
-				}
-				else
-				{
-					if (condition && !(stringStack.peek() == '-' || stringStack.peek() == '+'))
-						System.out.print(stringStack.pop());
-					stringStack.push(currentChar);
-				}	
-			}
-		}
-	}
-	
-	/**
-	 * Unfinished
-	 * @throws NumberFormatException
-	 * @throws IOException
-	 */
-	public static void theNextPalindromeNew () throws NumberFormatException, IOException
-	{
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		int numOfInput = Integer.parseInt(reader.readLine());
-		
-		for (int i = 0; i < numOfInput; i++)
-		{
-			int firstInt = 0;
-			int secInt = 0;
-			
-			String currentNumString = reader.readLine();
-			int[] currentNumArray = new int[currentNumString.length()];
-			for (int x = 0; x < currentNumArray.length; x++)
-				currentNumArray[x] = currentNumString.charAt(i) - '0';
-			
-			for (int j = 0; j < currentNumArray.length / 2; j++)
-			{
-				firstInt = firstInt * 10 + currentNumArray[j];
-				secInt = secInt * 10 + currentNumArray[j + currentNumArray.length / 2];
-			}
-			if (firstInt > secInt)	
-				for (int k = 0; k < currentNumArray.length / 2; k++)
-					currentNumArray[currentNumArray.length - k - 1] = currentNumArray[k];
-			else if (firstInt < secInt)
-			{
-				if (currentNumArray.length % 2 == 1)
-				{
-					firstInt = firstInt * 10 + currentNumArray[currentNumArray.length / 2 + 1];
-					currentNumArray[currentNumArray.length / 2 + 1] = (currentNumArray[currentNumArray.length / 2 + 1] + 1) % 10;
-				}
-				firstInt += 1;
-				for (int y = 0; y < currentNumArray.length / 2; y++)
-				{
-					currentNumArray[currentNumArray.length / 2 - y] = firstInt % 10;
-					firstInt /= 10;
-				}
-				for (int z = 0; z < currentNumArray.length / 2; z++)
-					currentNumArray[currentNumArray.length - z - 1] = currentNumArray[z];
-			}
-			
-			for (int a = 0; a < currentNumArray.length; a++)
-				System.out.print(currentNumArray[a]);
-			System.out.println();
-		}
-	}
-	
-	/***
-	 * Unfinished
-	 * @throws NumberFormatException
-	 * @throws IOException
-	 */
-	public static void theNextPalindrome () throws NumberFormatException, IOException
-	{
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		int numOfInput = Integer.parseInt(reader.readLine());
-		boolean condition = false;
-		
-		for (int i = 0; i < numOfInput; i++)
-		{
-			condition = false;
-			double currentDouble = Double.parseDouble(reader.readLine());
-			if (currentDouble > Integer.MAX_VALUE)
-				break;
-			int currentNum = (int) currentDouble;
-			
-			while (!condition)
-			{
-				currentNum++;
-				condition = ProblemHelper.palindromeIntChecker(currentNum);
-			}
-			
-			System.out.println(currentNum);
-		}
-	}
+    }
 
-	/**
-	 * Solution for classical -> Factorial, ID 11
-	 * @throws NumberFormatException
-	 * @throws IOException
-	 */
-	public static void factorial () throws NumberFormatException, IOException
-	{
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		int numOfInput = Integer.parseInt(reader.readLine());
-		boolean condition = false;
-		double power = 1; 
-		int currentInput = 0;
-		int currentOutput = 0;
-		
-		for (int i = 0; i < numOfInput; i++)
-		{
-			currentInput = Integer.parseInt(reader.readLine());
-			while (!condition)
-			{
-				if (currentInput / Math.pow(5.0, power) >= 1)
-				{
-					currentOutput += (int)(currentInput / Math.pow(5.0, power));
-					power++;
-				}
-				else
-					condition = true;
-			}
-			System.out.println(currentOutput);
-			condition = false;
-			power = 1;
-			currentOutput = 0;
-		}
-	}
+    /**
+     * Unfinished
+     * @throws NumberFormatException
+     * @throws IOException
+     */
+    public static void transformTheExpression () throws NumberFormatException, IOException
+    {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int numOfInput = Integer.parseInt(reader.readLine());
 
-	/**
-	 * Solution for classical -> Small Factorials, ID 24
-	 * @throws NumberFormatException
-	 * @throws IOException
-	 */
-	public static void smallFactorial () throws NumberFormatException, IOException
-	{
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		int numInput = Integer.parseInt(reader.readLine());
-		for (int i = 0; i < numInput; i++)
-		{
-			int currentInput = Integer.parseInt(reader.readLine());
-			BigInteger value = BigInteger.valueOf(1);
-			for (int j = 1; j <= currentInput; j++)
-				value = value.multiply(BigInteger.valueOf(j));
-			
-			System.out.println(value);
-		}
-	}
+        Stack<Character> stringStack = new Stack<Character>();
+        boolean condition = false;
+
+        for (int x = 0; x < numOfInput; x++)
+        {
+            String expression = reader.readLine();
+            for (int i = 0; i < expression.length(); i++)
+            {
+                char currentChar = expression.charAt(i);
+                if (Character.isLetter(currentChar))
+                    System.out.print(currentChar);
+                else if (currentChar == ')' && !stringStack.isEmpty())
+                {	
+                    condition = false;
+                    System.out.print(stringStack.pop());
+                }
+                else if (currentChar == '(')
+                    condition = true;
+                else if (currentChar == '^')
+                    stringStack.push(currentChar);
+                else if (currentChar == '/' || currentChar == '*')
+                {
+                    if (condition && stringStack.peek() == '^')
+                        System.out.print(stringStack.pop());
+                    stringStack.push(currentChar);
+                }
+                else
+                {
+                    if (condition && !(stringStack.peek() == '-' || stringStack.peek() == '+'))
+                        System.out.print(stringStack.pop());
+                    stringStack.push(currentChar);
+                }	
+            }
+        }
+    }
+
+    /**
+     * Unfinished
+     * @throws NumberFormatException
+     * @throws IOException
+     */
+    public static void theNextPalindromeNew () throws NumberFormatException, IOException
+    {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int numOfInput = Integer.parseInt(reader.readLine());
+
+        for (int i = 0; i < numOfInput; i++)
+        {
+            int firstInt = 0;
+            int secInt = 0;
+
+            String currentNumString = reader.readLine();
+            int[] currentNumArray = new int[currentNumString.length()];
+            for (int x = 0; x < currentNumArray.length; x++)
+                currentNumArray[x] = currentNumString.charAt(i) - '0';
+
+            for (int j = 0; j < currentNumArray.length / 2; j++)
+            {
+                firstInt = firstInt * 10 + currentNumArray[j];
+                secInt = secInt * 10 + currentNumArray[j + currentNumArray.length / 2];
+            }
+            if (firstInt > secInt)	
+                for (int k = 0; k < currentNumArray.length / 2; k++)
+                    currentNumArray[currentNumArray.length - k - 1] = currentNumArray[k];
+            else if (firstInt < secInt)
+            {
+                if (currentNumArray.length % 2 == 1)
+                {
+                    firstInt = firstInt * 10 + currentNumArray[currentNumArray.length / 2 + 1];
+                    currentNumArray[currentNumArray.length / 2 + 1] = (currentNumArray[currentNumArray.length / 2 + 1] + 1) % 10;
+                }
+                firstInt += 1;
+                for (int y = 0; y < currentNumArray.length / 2; y++)
+                {
+                    currentNumArray[currentNumArray.length / 2 - y] = firstInt % 10;
+                    firstInt /= 10;
+                }
+                for (int z = 0; z < currentNumArray.length / 2; z++)
+                    currentNumArray[currentNumArray.length - z - 1] = currentNumArray[z];
+            }
+
+            for (int a = 0; a < currentNumArray.length; a++)
+                System.out.print(currentNumArray[a]);
+            System.out.println();
+        }
+    }
+
+    /***
+     * Unfinished
+     * @throws NumberFormatException
+     * @throws IOException
+     */
+    public static void theNextPalindrome () throws NumberFormatException, IOException
+    {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int numOfInput = Integer.parseInt(reader.readLine());
+        boolean condition = false;
+
+        for (int i = 0; i < numOfInput; i++)
+        {
+            condition = false;
+            double currentDouble = Double.parseDouble(reader.readLine());
+            if (currentDouble > Integer.MAX_VALUE)
+                break;
+            int currentNum = (int) currentDouble;
+
+            while (!condition)
+            {
+                currentNum++;
+                condition = ProblemHelper.palindromeIntChecker(currentNum);
+            }
+
+            System.out.println(currentNum);
+        }
+    }
+
+    /**
+     * Solution for classical -> Factorial, ID 11
+     * @throws NumberFormatException
+     * @throws IOException
+     */
+    public static void factorial () throws NumberFormatException, IOException
+    {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int numOfInput = Integer.parseInt(reader.readLine());
+        boolean condition = false;
+        double power = 1; 
+        int currentInput = 0;
+        int currentOutput = 0;
+
+        for (int i = 0; i < numOfInput; i++)
+        {
+            currentInput = Integer.parseInt(reader.readLine());
+            while (!condition)
+            {
+                if (currentInput / Math.pow(5.0, power) >= 1)
+                {
+                    currentOutput += (int)(currentInput / Math.pow(5.0, power));
+                    power++;
+                }
+                else
+                    condition = true;
+            }
+            System.out.println(currentOutput);
+            condition = false;
+            power = 1;
+            currentOutput = 0;
+        }
+    }
+
+    /**
+     * Solution for classical -> Small Factorials, ID 24
+     * @throws NumberFormatException
+     * @throws IOException
+     */
+    public static void smallFactorial () throws NumberFormatException, IOException
+    {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int numInput = Integer.parseInt(reader.readLine());
+        for (int i = 0; i < numInput; i++)
+        {
+            int currentInput = Integer.parseInt(reader.readLine());
+            BigInteger value = BigInteger.valueOf(1);
+            for (int j = 1; j <= currentInput; j++)
+                value = value.multiply(BigInteger.valueOf(j));
+
+            System.out.println(value);
+        }
+    }
+
+    /**
+     * Solution for classical -> Adding Reversed Numbers, ID 42
+     * @throws NumberFormatException
+     * @throws IOException
+     */
+    public static void addingReversedNumbers () throws NumberFormatException, IOException
+    {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int numInput = Integer.parseInt(reader.readLine());
+
+        for (int i = 0; i < numInput; i++)
+        {
+            String[] placeHolder = reader.readLine().split(" ");
+            System.out.println(ProblemHelper.reverseInt(ProblemHelper.reverseInt(Integer.parseInt(placeHolder[0]))
+                    + ProblemHelper.reverseInt(Integer.parseInt(placeHolder[1]))));
+        }
+    }
 }
