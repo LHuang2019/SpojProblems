@@ -26,4 +26,23 @@ public class ProblemHelper {
 		}    
 		return rev == input;
 	}
+	
+	/**
+	 * helper method which returns the reverse of the input number
+	 * Discard all trailing zeros of the original input number
+	 * @param input
+	 * @return reverse number
+	 */
+	public static int reverseInt (int input)
+	{
+        int rev = 0;
+        while (input > 0)
+        {
+            int currentDigit = input % 10;
+            rev = rev * 10 + currentDigit;
+            input /= 10;
+        }
+
+        return rev;
+	}
 }
