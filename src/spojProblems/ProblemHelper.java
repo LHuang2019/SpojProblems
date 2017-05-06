@@ -45,4 +45,19 @@ public class ProblemHelper {
 
         return rev;
 	}
+	
+	/**
+	 * helper method which returns the priority of the function
+	 * @param input
+	 * @return priority of the input
+	 */
+	public static int getPriority (String input)
+	{
+	    if (input.equals("^"))
+	        return 2;
+	    else if (input.equals("*") || input.equals("/"))
+	        return 1;
+	    else
+	        return 0;
+	}
 }
