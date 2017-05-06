@@ -177,4 +177,37 @@ public class ClassicalOne {
                     + ProblemHelper.reverseInt(Integer.parseInt(placeHolder[1]))));
         }
     }
+
+    /**
+     * Solution for classical -> Number Steps, ID 1112
+     * @throws NumberFormatException
+     * @throws IOException
+     */
+    public static void numberSteps () throws NumberFormatException, IOException
+    {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int numInput = Integer.parseInt(reader.readLine());
+        
+        for (int i = 0; i <numInput; i++)
+        {
+            String[] placeHolder = reader.readLine().split(" ");
+            int x = Integer.parseInt(placeHolder[0]);
+            int y = Integer.parseInt(placeHolder[1]);
+            if (x == y)
+            {
+                if (x == 0 || x == 1)
+                    System.out.println(x);
+                else if (x % 2 == 0)
+                    System.out.println(x * 2);
+                else
+                    System.out.println(x * 2 - 1);
+            }
+            else if (x % 2 == 0 && ((x - 2) == y))
+                System.out.println(x + y);
+            else if (x % 2 == 1 && ((x - 2) == y))
+                System.out.println(x + y - 1);
+            else
+                System.out.println("No Number");
+        }
+    }
 }
