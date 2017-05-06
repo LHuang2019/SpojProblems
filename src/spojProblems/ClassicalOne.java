@@ -62,48 +62,47 @@ public class ClassicalOne {
     }
 
     /**
-     * Unfinished
+     * Solution for classical -> Transform the Expression, ID 4
      * @throws NumberFormatException
      * @throws IOException
      */
     public static void transformTheExpression () throws NumberFormatException, IOException
     {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int numOfInput = Integer.parseInt(reader.readLine());
+        int numInput = Integer.parseInt(reader.readLine());
+        Stack<String> stack = new Stack<String>();
 
-        Stack<Character> stringStack = new Stack<Character>();
-        boolean condition = false;
-
-        for (int x = 0; x < numOfInput; x++)
+        for (int i = 0; i < numInput; i++)
         {
-            String expression = reader.readLine();
-            for (int i = 0; i < expression.length(); i++)
+            String[] expression = reader.readLine().split("");
+            for (int j = 0; j < expression.length; j++)
             {
-                char currentChar = expression.charAt(i);
-                if (Character.isLetter(currentChar))
-                    System.out.print(currentChar);
-                else if (currentChar == ')' && !stringStack.isEmpty())
-                {	
-                    condition = false;
-                    System.out.print(stringStack.pop());
-                }
-                else if (currentChar == '(')
-                    condition = true;
-                else if (currentChar == '^')
-                    stringStack.push(currentChar);
-                else if (currentChar == '/' || currentChar == '*')
+                if (expression[j].matches("[A-Za-z]{1}"))
+                    System.out.print(expression[j]);
+                else if (expression[j].equals("("))
                 {
-                    if (condition && stringStack.peek() == '^')
-                        System.out.print(stringStack.pop());
-                    stringStack.push(currentChar);
+                    stack.push(expression[j]);
+                }
+                else if (expression[j].equals(")"))
+                {
+                    while (!stack.peek().equals("("))
+                        System.out.print(stack.pop());
+                    stack.pop();
                 }
                 else
-                {
-                    if (condition && !(stringStack.peek() == '-' || stringStack.peek() == '+'))
-                        System.out.print(stringStack.pop());
-                    stringStack.push(currentChar);
-                }	
+                    while (!stack.isEmpty())
+                        if (stack.peek().equals("(") || ProblemHelper.getPriority(stack.peek()) < ProblemHelper.getPriority(expression[j]))
+                        {
+                            stack.push(expression[j]);
+                            break;
+                        }
+                        else
+                            System.out.print(stack.pop());
             }
+            while (!stack.isEmpty())
+                System.out.print(stack.pop());
+
+            System.out.println("");
         }
     }
 
