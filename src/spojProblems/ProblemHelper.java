@@ -60,4 +60,14 @@ public class ProblemHelper {
 	    else
 	        return 0;
 	}
+	
+	/**
+	 * helper method which returns sum of the first n squares
+	 * @param n
+	 * @return
+	 */
+	public static int sumFirstNSquares (int n)
+	{
+	    return  (n * (n + 1) * (2 * n + 1)) / 6;
+	}
 }
