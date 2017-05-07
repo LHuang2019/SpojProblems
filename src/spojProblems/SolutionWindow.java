@@ -14,7 +14,6 @@ public class SolutionWindow {
      */
     public static void main (String[] args) throws java.lang.Exception
     {
-       // BasicsProblems.characterPatternsActThree();
-    	  ClassicalOne.numberSteps();
+    	  ClassicalOne.feynman();
     }
 }

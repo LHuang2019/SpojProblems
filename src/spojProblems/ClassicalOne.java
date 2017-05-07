@@ -210,4 +210,23 @@ public class ClassicalOne {
                 System.out.println("No Number");
         }
     }
+    
+    /**
+     * Solution for classical -> Feynman, ID 3410
+     * Use sum of first N squares
+     * @throws NumberFormatException
+     * @throws IOException
+     */
+    public static void feynman () throws NumberFormatException, IOException
+    {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));        
+        
+        int n = Integer.parseInt(reader.readLine());
+        
+        while (n != 0)
+        {   
+            System.out.println(ProblemHelper.sumFirstNSquares(n));
+            n = Integer.parseInt(reader.readLine());
+        }
+    }
 }
