@@ -229,4 +229,34 @@ public class ClassicalOne {
             n = Integer.parseInt(reader.readLine());
         }
     }
+    
+    /**
+     * Solution for classical -> What’s Next, ID 7974
+     * @throws NumberFormatException
+     * @throws IOException
+     */
+    public static void whatsNext () throws NumberFormatException, IOException
+    {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        
+        while (true)
+        {
+            String[] array = reader.readLine().split(" ");
+            
+            if (array[0].equals("0") && array[1].equals("0") && array[2].equals("0"))
+                break;
+            
+            int i = Integer.parseInt(array[0]);
+            int j = Integer.parseInt(array[1]);
+            int k = Integer.parseInt(array[2]);
+            
+            if (i == j && i == k)
+                System.out.println("GP 1");
+            else if ((j - i) == (k - j))
+                System.out.println("AP " + (k + (k - j)));
+            else
+                System.out.println("GP " + (k * (k / j)));
+        }
+        
+    }
 }
