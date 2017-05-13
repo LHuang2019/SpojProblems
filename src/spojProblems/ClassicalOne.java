@@ -257,6 +257,47 @@ public class ClassicalOne {
             else
                 System.out.println("GP " + (k * (k / j)));
         }
-        
+    }
+    
+    /**
+     * Solution for classical -> Candy I, ID 2123
+     * @throws NumberFormatException
+     * @throws IOException
+     */
+    public static void candyI () throws NumberFormatException, IOException
+    {
+    	BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    	
+    	while (true)
+    	{
+    		int numInput = Integer.parseInt(reader.readLine());
+    		
+    		if (numInput == -1)
+    			break;
+    		
+    		int[] numArray = new int[numInput];
+    		int sum = 0;
+    		int mean = 0;
+    		
+    		for (int i = 0; i < numInput; i++)
+    		{
+    			numArray [i]= Integer.parseInt(reader.readLine());
+    			sum += numArray[i];
+    		}
+    		
+    		if (sum % numInput != 0)
+    			System.out.println(-1);
+    		else
+    		{
+    			int numMove = 0;
+    			mean = sum / numInput;
+    			
+    			for (int j = 0; j < numInput; j++)    			
+    				if (numArray[j] > mean)
+    					numMove = numMove + (numArray[j] - mean);
+    				
+    			System.out.println(numMove);
+    		}
+    	}
     }
 }
