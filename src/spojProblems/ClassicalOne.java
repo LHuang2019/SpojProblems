@@ -317,26 +317,64 @@ public class ClassicalOne {
 		{
 			int length = Integer.parseInt(reader.readLine());
 			int sum = 0;
-			
+
 			@SuppressWarnings("unchecked")
 			ArrayList<Integer>[] model = new ArrayList[2];
-			
-			
+
+
 			for (int j = 0; j < model.length; j++)
 			{
 				model[j] = new ArrayList<Integer>();
 				String[] placeHolder = reader.readLine().split(" ");
-				
+
 				for (int k = 0; k < length; k++)
 					model[j].add(Integer.parseInt(placeHolder[k]));	
-				
+
 				Collections.sort(model[j]);
 			}
-			
+
 			for (int l = 0; l < length; l++)
 				sum = sum + (model[0].get(l) * model[1].get(l));
-			
+
 			System.out.println(sum);
+		}
+	}
+
+	/**
+	 * Solution for classical -> To and Fro, ID 400
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void toAndFro () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+		while (true)
+		{
+			int column = Integer.parseInt(reader.readLine());
+
+			if (column == 0)
+				break;
+
+			String string = reader.readLine();
+			char[][] array = new char[string.length() / column][column];
+
+			for (int i = 0; i < array.length; i++)
+				for (int j = 0; j < array[i].length; j++)
+				{					
+					if (i % 2 == 0)
+						array[i][j] = string.charAt(0);
+					else 
+						array[i][column - j - 1] = string.charAt(0);
+
+					string = string.substring(1, string.length());
+				}
+			
+			for (int x = 0; x < column; x++)
+				for (int y = 0; y < array.length; y++)
+					System.out.print(array[y][x]);
+			
+			System.out.println("");
 		}
 	}
 }
