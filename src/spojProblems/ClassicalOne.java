@@ -377,4 +377,24 @@ public class ClassicalOne {
 			System.out.println("");
 		}
 	}
+	
+	/**
+	 * Solution for classical -> Rectangles, ID 4300
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void rectangles () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		int input = Integer.parseInt(reader.readLine());
+		int rectangle = 0;
+		
+		for (int i = 1; i <= input; i++)
+			for (int j = 1; j <= Math.floor(Math.sqrt(i)); j++)
+				if (i % j == 0)
+					rectangle++;
+		
+		System.out.println(rectangle);
+	}
 }
