@@ -369,15 +369,15 @@ public class ClassicalOne {
 
 					string = string.substring(1, string.length());
 				}
-			
+
 			for (int x = 0; x < column; x++)
 				for (int y = 0; y < array.length; y++)
 					System.out.print(array[y][x]);
-			
+
 			System.out.println("");
 		}
 	}
-	
+
 	/**
 	 * Solution for classical -> Rectangles, ID 4300
 	 * @throws NumberFormatException
@@ -386,15 +386,41 @@ public class ClassicalOne {
 	public static void rectangles () throws NumberFormatException, IOException
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		
+
 		int input = Integer.parseInt(reader.readLine());
 		int rectangle = 0;
-		
+
 		for (int i = 1; i <= input; i++)
 			for (int j = 1; j <= Math.floor(Math.sqrt(i)); j++)
 				if (i % j == 0)
 					rectangle++;
-		
+
 		System.out.println(rectangle);
+	}
+
+	/**
+	 * Solution for classical -> The last digit, ID 3442
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void theLastDigit () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int numInput = Integer.parseInt(reader.readLine());
+		for (int i = 0; i < numInput; i++)
+		{
+			String[] input = reader.readLine().split(" ");
+			int b = Integer.parseInt(input[0]);
+			int p = Integer.parseInt(input[1]);
+			if (b == 0)
+				System.out.println(0);
+			else if (p == 0)
+				System.out.println(1);
+			else
+			{
+				p = (p % 4 == 0) ? 4 : p % 4;
+				System.out.println((int)Math.pow(b % 10, p) % 10);
+			}
+		}
 	}
 }
