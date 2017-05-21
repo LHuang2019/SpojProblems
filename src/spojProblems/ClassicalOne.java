@@ -5,6 +5,8 @@ import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
 /**
@@ -421,6 +423,23 @@ public class ClassicalOne {
 				p = (p % 4 == 0) ? 4 : p % 4;
 				System.out.println((int)Math.pow(b % 10, p) % 10);
 			}
+		}
+	}
+	
+	/**
+	 * Solution for classical -> Bytelandian gold coins, ID 346
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void bytelandianGoldCoins () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		for (int i = 0; i < 1; i++)
+		{
+			int coin = Integer.parseInt(reader.readLine());
+			Map<Integer, BigInteger> map = new HashMap<Integer, BigInteger>();
+			System.out.println(ProblemHelper.bytelandianGoldCoinsHelper(coin, map));
 		}
 	}
 }

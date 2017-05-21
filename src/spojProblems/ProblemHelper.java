@@ -1,5 +1,8 @@
 package spojProblems;
 
+import java.math.BigInteger;
+import java.util.Map;
+
 /**
  * Class which contains helper methods to help solve problems
  * @author Li Huang
@@ -7,11 +10,11 @@ package spojProblems;
  */
 public class ProblemHelper {
 
-    /**
-     * helper method which checks to see if a number is palindrome
-     * @param input the number that needs to be check
-     * @return true if the number is palindrome
-     */
+	/**
+	 * helper method which checks to see if a number is palindrome
+	 * @param input the number that needs to be check
+	 * @return true if the number is palindrome
+	 */
 	public static boolean palindromeIntChecker (int input)
 	{
 		int num = input;
@@ -26,7 +29,7 @@ public class ProblemHelper {
 		}    
 		return rev == input;
 	}
-	
+
 	/**
 	 * helper method which returns the reverse of the input number
 	 * Discard all trailing zeros of the original input number
@@ -35,17 +38,17 @@ public class ProblemHelper {
 	 */
 	public static int reverseInt (int input)
 	{
-        int rev = 0;
-        while (input > 0)
-        {
-            int currentDigit = input % 10;
-            rev = rev * 10 + currentDigit;
-            input /= 10;
-        }
+		int rev = 0;
+		while (input > 0)
+		{
+			int currentDigit = input % 10;
+			rev = rev * 10 + currentDigit;
+			input /= 10;
+		}
 
-        return rev;
+		return rev;
 	}
-	
+
 	/**
 	 * helper method which returns the priority of the function
 	 * @param input
@@ -53,14 +56,14 @@ public class ProblemHelper {
 	 */
 	public static int getPriority (String input)
 	{
-	    if (input.equals("^"))
-	        return 2;
-	    else if (input.equals("*") || input.equals("/"))
-	        return 1;
-	    else
-	        return 0;
+		if (input.equals("^"))
+			return 2;
+		else if (input.equals("*") || input.equals("/"))
+			return 1;
+		else
+			return 0;
 	}
-	
+
 	/**
 	 * helper method which returns sum of the first n squares
 	 * @param n
@@ -68,6 +71,23 @@ public class ProblemHelper {
 	 */
 	public static int sumFirstNSquares (int n)
 	{
-	    return  (n * (n + 1) * (2 * n + 1)) / 6;
+		return  (n * (n + 1) * (2 * n + 1)) / 6;
+	}
+
+	public static BigInteger bytelandianGoldCoinsHelper (int n, Map<Integer, BigInteger> map)
+	{
+		if (n < 12)
+			return BigInteger.valueOf(n);
+
+		if (map.containsKey(n))
+			return map.get(n);
+		else
+		{
+			map.put(n, 
+					bytelandianGoldCoinsHelper(n / 4, map).
+					add(bytelandianGoldCoinsHelper(n / 3, map)).
+					add(bytelandianGoldCoinsHelper(n / 2, map))); 
+			return map.get(n);
+		}
 	}
 }
