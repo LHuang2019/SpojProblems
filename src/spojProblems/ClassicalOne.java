@@ -425,7 +425,7 @@ public class ClassicalOne {
 			}
 		}
 	}
-	
+
 	/**
 	 * Solution for classical -> Bytelandian gold coins, ID 346
 	 * @throws NumberFormatException
@@ -434,12 +434,42 @@ public class ClassicalOne {
 	public static void bytelandianGoldCoins () throws NumberFormatException, IOException
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		
+
 		for (int i = 0; i < 1; i++)
 		{
 			int coin = Integer.parseInt(reader.readLine());
 			Map<Integer, BigInteger> map = new HashMap<Integer, BigInteger>();
 			System.out.println(ProblemHelper.bytelandianGoldCoinsHelper(coin, map));
+		}
+	}
+
+	/**
+	 * Solution for classical -> Julka, ID 54
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void julka () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+		for (int i = 0; i < 10; i++)
+		{
+			BigInteger sum = new BigInteger(reader.readLine());
+			BigInteger diff = new BigInteger(reader.readLine());
+
+			if (sum.getLowestSetBit() != 0)
+				System.out.println(((sum.divide(new BigInteger("2")))
+						.add(diff.divide(new BigInteger("2"))))
+						.toString());
+			else
+				System.out.println(((sum.divide(new BigInteger("2")))
+						.add(diff.divide(new BigInteger("2"))
+								.add(new BigInteger("1")))
+						.toString()));
+
+			System.out.println(((sum.divide(new BigInteger("2")))
+					.subtract(diff.divide(new BigInteger("2"))))
+					.toString());
 		}
 	}
 }
