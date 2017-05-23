@@ -472,4 +472,31 @@ public class ClassicalOne {
 					.toString());
 		}
 	}
+	
+	/**
+	 * Solution for classical -> Candy III, ID 2148
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void candyIII () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		BigInteger numInput = new BigInteger(reader.readLine());
+		
+		for (BigInteger i = BigInteger.ZERO; i.compareTo(numInput) < 0; i = i.add(BigInteger.ONE))
+		{
+			reader.readLine();
+			BigInteger count = new BigInteger(reader.readLine());
+			BigInteger sum = BigInteger.ZERO;
+			
+			for (BigInteger j = BigInteger.ZERO; j.compareTo(count) < 0; j = j.add(BigInteger.ONE))
+				sum = sum.add(new BigInteger(reader.readLine()));
+			
+			if (sum.mod(count).compareTo(BigInteger.ZERO) == 0)
+				System.out.println("YES");
+			else
+				System.out.println("NO");
+		}
+	}
 }
