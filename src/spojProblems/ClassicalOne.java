@@ -499,4 +499,22 @@ public class ClassicalOne {
 				System.out.println("NO");
 		}
 	}
+	
+	/**
+	 * Solved classical -> Triple Fat Ladies, ID 1030
+	 * http://www.algorithmist.com/index.php/SPOJ_EIGHTS#Summary
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void tripleFatLadies () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int numInput = Integer.parseInt(reader.readLine());
+		
+		for (int i = 0; i <numInput; i++)
+		{
+			BigInteger input = new BigInteger(reader.readLine());
+			System.out.println(input.subtract(BigInteger.ONE).multiply(new BigInteger("250")).add(new BigInteger("192")));
+		}
+	}
 }
