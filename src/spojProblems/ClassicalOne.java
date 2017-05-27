@@ -472,7 +472,7 @@ public class ClassicalOne {
 					.toString());
 		}
 	}
-	
+
 	/**
 	 * Solution for classical -> Candy III, ID 2148
 	 * @throws NumberFormatException
@@ -481,25 +481,25 @@ public class ClassicalOne {
 	public static void candyIII () throws NumberFormatException, IOException
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		
+
 		BigInteger numInput = new BigInteger(reader.readLine());
-		
+
 		for (BigInteger i = BigInteger.ZERO; i.compareTo(numInput) < 0; i = i.add(BigInteger.ONE))
 		{
 			reader.readLine();
 			BigInteger count = new BigInteger(reader.readLine());
 			BigInteger sum = BigInteger.ZERO;
-			
+
 			for (BigInteger j = BigInteger.ZERO; j.compareTo(count) < 0; j = j.add(BigInteger.ONE))
 				sum = sum.add(new BigInteger(reader.readLine()));
-			
+
 			if (sum.mod(count).compareTo(BigInteger.ZERO) == 0)
 				System.out.println("YES");
 			else
 				System.out.println("NO");
 		}
 	}
-	
+
 	/**
 	 * Solved classical -> Triple Fat Ladies, ID 1030
 	 * http://www.algorithmist.com/index.php/SPOJ_EIGHTS#Summary
@@ -510,11 +510,57 @@ public class ClassicalOne {
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		int numInput = Integer.parseInt(reader.readLine());
-		
+
 		for (int i = 0; i <numInput; i++)
 		{
 			BigInteger input = new BigInteger(reader.readLine());
 			System.out.println(input.subtract(BigInteger.ONE).multiply(new BigInteger("250")).add(new BigInteger("192")));
+		}
+	}
+
+	public static void theNextPalindrome () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int numInput = Integer.parseInt(reader.readLine());
+
+		for (int i = 0; i < numInput; i++)
+		{	
+			String input = reader.readLine();
+
+			if (input.length() < 2)
+			{
+				System.out.println(Integer.parseInt(input) == 9 ? 11 : Integer.parseInt(input) + 1);
+				continue;
+			}
+
+			while(true)
+			{	
+				String left = input.substring(0, input.length() / 2);
+				String right = input.substring(input.length() / 2 + input.length() % 2, input.length());
+				String leftReverse = new StringBuilder(left).reverse().toString();
+				
+				BigInteger leftReverseInt = new BigInteger(leftReverse);
+				StringBuilder output = new StringBuilder(input.length() + 1);
+				
+				if (leftReverseInt.compareTo(new BigInteger(right)) > 0)
+				{
+					if (leftReverseInt.compareTo(BigInteger.ONE) == 0)
+					{
+						output.append(input.substring(0, input.length() - 1));
+						output.append("1");
+					}
+					else
+					{
+						output.append(input.substring(0, input.length() / 2 + input.length() % 2));
+						output.append(leftReverse);
+					}
+					System.out.println(output.toString());
+					break;
+				}
+				
+				output.append(new BigInteger(input.substring(0, input.length() / 2 + input.length() % 2)).add(BigInteger.ONE).toString());			
+				input = output.append(right.replaceAll(".", "0")).toString();
+			}
 		}
 	}
 }
