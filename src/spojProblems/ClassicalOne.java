@@ -538,10 +538,10 @@ public class ClassicalOne {
 				String left = input.substring(0, input.length() / 2);
 				String right = input.substring(input.length() / 2 + input.length() % 2, input.length());
 				String leftReverse = new StringBuilder(left).reverse().toString();
-				
+
 				BigInteger leftReverseInt = new BigInteger(leftReverse);
 				StringBuilder output = new StringBuilder(input.length() + 1);
-				
+
 				if (leftReverseInt.compareTo(new BigInteger(right)) > 0)
 				{
 					if (leftReverseInt.compareTo(BigInteger.ONE) == 0)
@@ -557,13 +557,13 @@ public class ClassicalOne {
 					System.out.println(output.toString());
 					break;
 				}
-				
+
 				output.append(new BigInteger(input.substring(0, input.length() / 2 + input.length() % 2)).add(BigInteger.ONE).toString());			
 				input = output.append(right.replaceAll(".", "0")).toString();
 			}
 		}
 	}
-	
+
 	/**
 	 * Solved classical -> Will it ever stop, ID 9948
 	 * @throws NumberFormatException
@@ -572,12 +572,36 @@ public class ClassicalOne {
 	public static void willItEverStop () throws NumberFormatException, IOException
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		
+
 		long input = Long.parseLong(reader.readLine());
-		
+
 		if (input < 1.0 || (input & (input - 1)) == 0)
 			System.out.println("TAK");
 		else
 			System.out.println("NIE");
+	}
+
+	/**
+	 * Solved classical -> Anti-Blot System, ID 2157
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void antiBlotSystem () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int numInput = Integer.parseInt(reader.readLine());
+
+		for (int i = 0; i < numInput; i++)
+		{
+			reader.readLine();
+			String[] array = reader.readLine().split(" ");
+			if (array[0].contains("machula") || array[2].contains("machula"))
+				array[array[0].contains("machula") ? 0 : 2] = 
+				Integer.toString(Integer.parseInt(array[4]) - Integer.parseInt(array[array[0].contains("machula") ? 2 : 0]));
+			else
+				array[4] = Integer.toString(Integer.parseInt(array[0]) + Integer.parseInt(array[2]));
+			
+			System.out.println(array[0] + " + " + array[2] + " = " + array[4]);
+		}
 	}
 }
