@@ -563,4 +563,21 @@ public class ClassicalOne {
 			}
 		}
 	}
+	
+	/**
+	 * Solved classical -> Will it ever stop, ID 9948
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void willItEverStop () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		long input = Long.parseLong(reader.readLine());
+		
+		if (input < 1.0 || (input & (input - 1)) == 0)
+			System.out.println("TAK");
+		else
+			System.out.println("NIE");
+	}
 }
