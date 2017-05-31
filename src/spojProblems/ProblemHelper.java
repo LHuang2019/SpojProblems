@@ -2,6 +2,7 @@ package spojProblems;
 
 import java.math.BigInteger;
 import java.util.Map;
+import java.util.stream.Stream;
 
 /**
  * Class which contains helper methods to help solve problems
@@ -89,5 +90,15 @@ public class ProblemHelper {
 					add(bytelandianGoldCoinsHelper(n / 2, map))); 
 			return map.get(n);
 		}
+	}
+	
+	/**
+	 * helper method which convert a string array to int array
+	 * @param array string array
+	 * @return int array
+	 */
+	public static int[] parseIntArray (String[] array)
+	{
+		return Stream.of(array).mapToInt(Integer::parseInt).toArray();
 	}
 }
