@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -602,6 +603,41 @@ public class ClassicalOne {
 				array[4] = Integer.toString(Integer.parseInt(array[0]) + Integer.parseInt(array[2]));
 			
 			System.out.println(array[0] + " + " + array[2] + " = " + array[4]);
+		}
+	}
+	
+	/**
+	 * Solved classical -> Stamps, ID 3375
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void stamps () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int numInput = Integer.parseInt(reader.readLine());
+		
+		outerloop:
+		for (int i = 0; i < numInput; i++)
+		{
+			int[] target = ProblemHelper.parseIntArray(reader.readLine().split(" "));
+			int[] input = ProblemHelper.parseIntArray(reader.readLine().split(" "));
+			Arrays.sort(input);
+			
+			int sum = 0;
+			
+			System.out.println("Scenario #" + (i + 1) + ":");
+			
+			for (int j = target[1] - 1; j > -1; j--)
+			{
+				sum += input[j];
+				if (sum < target[0])
+					continue;
+				
+				System.out.println((target[1] - j) + "\n");
+				continue outerloop;
+			}
+			
+			System.out.println("impossible\n");
 		}
 	}
 }
