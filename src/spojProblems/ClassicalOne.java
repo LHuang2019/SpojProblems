@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
+import java.util.StringTokenizer;
 
 /**
  * Class which has the solution for classical problems
@@ -638,6 +639,47 @@ public class ClassicalOne {
 			}
 			
 			System.out.println("impossible\n");
+		}
+	}
+	
+	/**
+	 * Solved classical -> Army Strength, ID 2727
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void armyStrength () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int numInput = Integer.parseInt(reader.readLine());
+		
+		for (int i = 0; i < numInput; i++)
+		{
+			reader.readLine();
+			reader.readLine();
+			
+			StringTokenizer strength = new StringTokenizer(reader.readLine());
+			
+			int maxOne = 0;
+			
+			while(strength.hasMoreTokens())
+			{
+				int current = Integer.parseInt(strength.nextToken());
+				if (current > maxOne)
+					maxOne = current;
+			}
+			
+			strength = new StringTokenizer(reader.readLine());
+			
+			int maxTwo = 0;
+			
+			while(strength.hasMoreTokens())
+			{
+				int current = Integer.parseInt(strength.nextToken());
+				if (current > maxTwo)
+					maxTwo = current;
+			}
+			
+			System.out.println(maxOne >= maxTwo ? "Godzilla" : "MechaGodzilla");
 		}
 	}
 }
