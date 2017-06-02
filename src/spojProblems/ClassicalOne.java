@@ -682,4 +682,32 @@ public class ClassicalOne {
 			System.out.println(maxOne >= maxTwo ? "Godzilla" : "MechaGodzilla");
 		}
 	}
+	
+	/**
+	 * Solved classical -> Ambiguous Permutations, ID 379
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void ambiguousPermutations () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		outerloop:
+		while (true)
+		{
+			if (reader.readLine().equals("0"))
+				break;
+			
+			int[] perm = ProblemHelper.parseIntArray(reader.readLine().split(" "));
+			
+			for (int i = 0; i < perm.length; i++)
+				if ((i + 1) != perm[perm[i] - 1])
+				{
+					System.out.println("not ambiguous");
+					continue outerloop;
+				}
+			
+			System.out.println("ambiguous");
+		}
+	}
 }
