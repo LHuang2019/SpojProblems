@@ -710,4 +710,22 @@ public class ClassicalOne {
 			System.out.println("ambiguous");
 		}
 	}
+	
+	/**
+	 * Solved classical ->  Counting Triangles, ID 1724
+	 * Reference: http://oeis.org/A002717
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void countingTriangles () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int numInput = Integer.parseInt(reader.readLine());
+		
+		while (numInput-- > 0)
+		{
+			long input = Long.parseLong(reader.readLine());
+			System.out.println(input * (input + 2) * ((input << 1) + 1) >> 3);
+		}
+	}
 }
