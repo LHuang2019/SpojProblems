@@ -12,7 +12,7 @@ import java.util.Stack;
 import java.util.StringTokenizer;
 
 /**
- * Class which has the solution for classical problems
+ * Class which has the solution for the first 25 solved classical problems
  * @author Li Huang
  * @version 1.7.2017
  */
