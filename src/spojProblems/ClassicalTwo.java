@@ -2,6 +2,7 @@ package spojProblems;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Stack;
 import java.util.StringTokenizer;
 
 /**
@@ -39,6 +40,53 @@ public class ClassicalTwo {
 				System.out.print((i += d) + " ");
 			
 			System.out.println();
+		}
+	}
+	
+	/**
+	 * Solved classical -> Street Parade, ID 95
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void streetParade () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		outerloop:
+		while(!reader.readLine().equals("0"))
+		{
+			StringTokenizer input = new StringTokenizer(reader.readLine());
+			Stack<Integer> road = new Stack<Integer>();
+			Stack<Integer> side = new Stack<Integer>();
+			
+			while(input.hasMoreTokens())
+				road.add(0, Integer.parseInt(input.nextToken()));
+			
+			int order = 1;
+			int max = road.size();
+			
+			while (order <= max)
+			{
+				if (road.isEmpty() && side.peek() != order)
+				{
+					System.out.println("no");
+					continue outerloop;
+				}
+				else if (!road.isEmpty() && road.peek() == order)
+				{
+					road.pop();
+					order++;
+				}
+				else if (!side.isEmpty() && side.peek() == order)
+				{
+					side.pop();
+					order++;
+				}
+				else if (!road.isEmpty())
+					side.push(road.pop());
+			}
+			
+			System.out.println("yes");
 		}
 	}
 }
