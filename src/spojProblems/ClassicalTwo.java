@@ -89,4 +89,20 @@ public class ClassicalTwo {
 			System.out.println("yes");
 		}
 	}
+	
+	/**
+	 * Solved classical -> Build a Fence, ID 4408
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void buildAFence () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		for (double input = Double.parseDouble(reader.readLine()); input != 0;)
+		{
+			System.out.printf("%.2f\n", Math.pow(input, 2) / 2 / Math.PI);
+			input = Double.parseDouble(reader.readLine());
+		}
+	}
 }
