@@ -127,11 +127,29 @@ public class ClassicalTwo {
 						/ ((array[0] > array[1] ? array[1] : array[0]) + 1);
 				int remainder = (array[0] > array[1] ? array[0] : array[1]) 
 						% ((array[0] > array[1] ? array[1] : array[0]) + 1);
-				
-					System.out.println(answer + (remainder == 0 ? 0 : 1));
+
+				System.out.println(answer + (remainder == 0 ? 0 : 1));
 			}
-			
+
 			array = ProblemHelper.parseIntArray(reader.readLine().split(" "));
+		}
+	}
+
+	/**
+	 * Solved classical -> Cards, ID 10509
+	 * reference: https://www.quora.com/How-do-I-find-the-sum-of-a-sequence-whose-common-difference-is-in-a-p
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void cards () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int numberInput = Integer.parseInt(reader.readLine());
+
+		while (numberInput-- > 0)
+		{
+			long input = Long.parseLong(reader.readLine());
+			System.out.println(((3 * input * input + input ) / 2) % 1000007);
 		}
 	}
 }
