@@ -137,7 +137,7 @@ public class ClassicalTwo {
 
 	/**
 	 * Solved classical -> Cards, ID 10509
-	 * reference: https://www.quora.com/How-do-I-find-the-sum-of-a-sequence-whose-common-difference-is-in-a-p
+	 * reference: http://www.s-cool.co.uk/gcse/maths/sequences/revise-it/the-nth-term
 	 * @throws NumberFormatException
 	 * @throws IOException
 	 */
@@ -151,5 +151,21 @@ public class ClassicalTwo {
 			long input = Long.parseLong(reader.readLine());
 			System.out.println(((3 * input * input + input ) / 2) % 1000007);
 		}
+	}
+	
+	/**
+	 * Solved classical -> Beehive Numbers, ID 7406
+	 * reference: http://www.s-cool.co.uk/gcse/maths/sequences/revise-it/the-nth-term
+	 * Formula for the sequence: nth number = 3n^2 - 3n + 1
+	 * The method finds the root of the above formula given nth number, and see if root is whole number or not
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void beehiveNumbers () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		for (double current = Integer.parseInt(reader.readLine()); current != -1; current = Integer.parseInt(reader.readLine()))
+			System.out.println((Math.sqrt(9 - 12 * (1 - current)) + 3) / 6 % 1 == 0 ? "Y" : "N");
 	}
 }
