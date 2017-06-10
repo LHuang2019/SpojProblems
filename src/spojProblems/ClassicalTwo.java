@@ -168,4 +168,17 @@ public class ClassicalTwo {
 		for (double current = Integer.parseInt(reader.readLine()); current != -1; current = Integer.parseInt(reader.readLine()))
 			System.out.println((Math.sqrt(9 - 12 * (1 - current)) + 3) / 6 % 1 == 0 ? "Y" : "N");
 	}
+	
+	/**
+	 * Solved classical -> A Game with Numbers, ID 1419
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void aGameWithNumbers () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		int input = Integer.parseInt(reader.readLine());
+		System.out.println(input % 10 == 0 ? 2 :1 +"\n" + (input % 10));
+	}
 }
