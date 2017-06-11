@@ -181,4 +181,25 @@ public class ClassicalTwo {
 		int input = Integer.parseInt(reader.readLine());
 		System.out.println(input % 10 == 0 ? 2 :1 +"\n" + (input % 10));
 	}
+	
+	/**
+	 * Solved classical -> Hangover, ID 902
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void hangOver () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		for (double input = Double.parseDouble(reader.readLine()); input != 0.00; input = Double.parseDouble(reader.readLine()))
+		{
+			int n = 1;
+			double sum = 0;
+			
+			while (sum < input)
+				sum = sum + 1 / (double)++n;
+			
+			System.out.println(n - 1 + " card(s)");
+		}
+	}
 }
