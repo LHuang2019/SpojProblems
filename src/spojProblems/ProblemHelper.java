@@ -1,6 +1,7 @@
 package spojProblems;
 
 import java.math.BigInteger;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 
@@ -100,5 +101,23 @@ public class ProblemHelper {
 	public static int[] parseIntArray (String[] array)
 	{
 		return Stream.of(array).mapToInt(Integer::parseInt).toArray();
+	}
+	
+	/**
+	 * helper method which given a string, return a HashMap that stores the occurrence of each character of the string.
+	 * @param s string
+	 * @return HashMap
+	 */
+	public static HashMap<Character, Integer> stringCharOccurance(String s)
+	{
+		HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+		
+		for (int i = 0; i < s.length(); i++)
+			if (map.containsKey(s.charAt(i)))
+				map.put(s.charAt(i), map.get(s.charAt(i)) + 1);
+			else
+				map.put(s.charAt(i), 1);
+				
+		return map;
 	}
 }
