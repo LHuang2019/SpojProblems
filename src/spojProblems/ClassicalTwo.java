@@ -2,6 +2,7 @@ package spojProblems;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
@@ -152,7 +153,7 @@ public class ClassicalTwo {
 			System.out.println(((3 * input * input + input ) / 2) % 1000007);
 		}
 	}
-	
+
 	/**
 	 * Solved classical -> Beehive Numbers, ID 7406
 	 * reference: http://www.s-cool.co.uk/gcse/maths/sequences/revise-it/the-nth-term
@@ -164,11 +165,11 @@ public class ClassicalTwo {
 	public static void beehiveNumbers () throws NumberFormatException, IOException
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		
+
 		for (double current = Integer.parseInt(reader.readLine()); current != -1; current = Integer.parseInt(reader.readLine()))
 			System.out.println((Math.sqrt(9 - 12 * (1 - current)) + 3) / 6 % 1 == 0 ? "Y" : "N");
 	}
-	
+
 	/**
 	 * Solved classical -> A Game with Numbers, ID 1419
 	 * @throws NumberFormatException
@@ -177,11 +178,11 @@ public class ClassicalTwo {
 	public static void aGameWithNumbers () throws NumberFormatException, IOException
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		
+
 		int input = Integer.parseInt(reader.readLine());
 		System.out.println(input % 10 == 0 ? 2 :1 +"\n" + (input % 10));
 	}
-	
+
 	/**
 	 * Solved classical -> Hangover, ID 902
 	 * @throws NumberFormatException
@@ -190,16 +191,71 @@ public class ClassicalTwo {
 	public static void hangOver () throws NumberFormatException, IOException
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		
+
 		for (double input = Double.parseDouble(reader.readLine()); input != 0.00; input = Double.parseDouble(reader.readLine()))
 		{
 			int n = 1;
 			double sum = 0;
-			
+
 			while (sum < input)
 				sum = sum + 1 / (double)++n;
-			
+
 			System.out.println(n - 1 + " card(s)");
+		}
+	}
+
+	/**
+	 * Solved classical -> Philosophers Stone, ID 3923
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void philosophersStone () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int numInput = Integer.parseInt(reader.readLine());
+ 		
+		while(numInput-- > 0)
+		{
+			int[] rowcol = ProblemHelper.parseIntArray(reader.readLine().split(" "));
+			int[][] array = new int[rowcol[0]][rowcol[1]];
+
+			StringTokenizer input = new StringTokenizer(reader.readLine());
+			
+			for (int i = 0; i < array.length; i++)
+				for (int j = 0; j < array[i].length; j++)
+				{
+					if (!input.hasMoreTokens())
+						input = new StringTokenizer(reader.readLine());
+					array[i][j] = Integer.parseInt(input.nextToken());
+				}	
+			
+			if (rowcol[1] == 1)
+			{
+				int answer = 0;
+				for (int i = 0; i < rowcol[0]; i++)
+					answer += array[i][0];
+
+				System.out.println(answer);
+				continue;
+			}
+
+			if (rowcol[0] == 1)
+				Arrays.sort(array[0]);
+			else
+			{
+				for (int k = rowcol[0] - 2; k > -1; k--)
+					for (int x = 0; x < rowcol[1]; x++)
+						if (x == 0)
+							array[k][x] += array[k + 1][x] > array[k + 1][x + 1] ? array[k + 1][x] : array[k + 1][x + 1];
+						else if (x == rowcol[1] - 1)
+							array[k][x] += array[k + 1][x] > array[k + 1][x - 1] ? array[k + 1][x] : array[k + 1][x - 1];
+						else
+							array[k][x] += Math.max(array[k + 1][x], Math.max(array[k + 1][x - 1], array[k + 1][x + 1]));
+					
+				Arrays.sort(array[0]);
+			}
+			
+			System.out.println(array[0][rowcol[1] - 1]);
 		}
 	}
 }
