@@ -258,4 +258,35 @@ public class ClassicalTwo {
 			System.out.println(array[0][rowcol[1] - 1]);
 		}
 	}
+	
+	/**
+	 * Solved classical -> Count on Cantor, ID 302
+	 * The formula for top part: 2n^2 - 3n + 2
+	 * The formula for bottom part: 2n^2 - n + 1
+	 * reference: http://www.biology.arizona.edu/biomath/tutorials/Quadratic/Roots.html
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void countOnCantor () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int numInput = Integer.parseInt(reader.readLine());
+		
+		while (numInput-- > 0)
+		{
+			int term = Integer.parseInt(reader.readLine());
+			
+			//use quadratic formula to find the nearest positive root, which represents the nearest term
+			int nearestTerm = (int) Math.round((Math.sqrt(9 - 8 * (2 - term)) + 3) / 4);
+			int nearestNum = 2 * nearestTerm * nearestTerm - 3 * nearestTerm + 2;
+			int top = (2 * nearestTerm - 1) - Math.abs(term - nearestNum);
+			
+			//use quadratic formula to find the nearest positive root, which represents the nearest term
+			nearestTerm = (int) Math.round((Math.sqrt(1 - 8 * (1 - term)) + 1) / 4);
+			nearestNum = 2 * nearestTerm * nearestTerm - nearestTerm + 1;
+			int bot = 2 * nearestTerm - Math.abs(term - nearestNum);
+			
+			System.out.println("TERM " + term + " IS " + top + "/" + bot);
+		}
+	}
 }
