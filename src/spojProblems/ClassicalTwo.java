@@ -3,8 +3,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Stack;
 import java.util.StringTokenizer;
+
+import spojProblems.FastIO.FastReader;
 
 /**
  * Class which has the solution for the 25 solved classical problems after Classicalone
@@ -213,14 +216,14 @@ public class ClassicalTwo {
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		int numInput = Integer.parseInt(reader.readLine());
- 		
+
 		while(numInput-- > 0)
 		{
 			int[] rowcol = ProblemHelper.parseIntArray(reader.readLine().split(" "));
 			int[][] array = new int[rowcol[0]][rowcol[1]];
 
 			StringTokenizer input = new StringTokenizer(reader.readLine());
-			
+
 			for (int i = 0; i < array.length; i++)
 				for (int j = 0; j < array[i].length; j++)
 				{
@@ -228,7 +231,7 @@ public class ClassicalTwo {
 						input = new StringTokenizer(reader.readLine());
 					array[i][j] = Integer.parseInt(input.nextToken());
 				}	
-			
+
 			if (rowcol[1] == 1)
 			{
 				int answer = 0;
@@ -247,18 +250,18 @@ public class ClassicalTwo {
 					for (int x = 0; x < rowcol[1]; x++)
 						if (x == 0)
 							array[k][x] += array[k + 1][x] > array[k + 1][x + 1] ? array[k + 1][x] : array[k + 1][x + 1];
-						else if (x == rowcol[1] - 1)
-							array[k][x] += array[k + 1][x] > array[k + 1][x - 1] ? array[k + 1][x] : array[k + 1][x - 1];
-						else
-							array[k][x] += Math.max(array[k + 1][x], Math.max(array[k + 1][x - 1], array[k + 1][x + 1]));
-					
+							else if (x == rowcol[1] - 1)
+								array[k][x] += array[k + 1][x] > array[k + 1][x - 1] ? array[k + 1][x] : array[k + 1][x - 1];
+								else
+									array[k][x] += Math.max(array[k + 1][x], Math.max(array[k + 1][x - 1], array[k + 1][x + 1]));
+
 				Arrays.sort(array[0]);
 			}
-			
+
 			System.out.println(array[0][rowcol[1] - 1]);
 		}
 	}
-	
+
 	/**
 	 * Solved classical -> Count on Cantor, ID 302
 	 * The formula for top part: 2n^2 - 3n + 2
@@ -271,22 +274,38 @@ public class ClassicalTwo {
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		int numInput = Integer.parseInt(reader.readLine());
-		
+
 		while (numInput-- > 0)
 		{
 			int term = Integer.parseInt(reader.readLine());
-			
+
 			//use quadratic formula to find the nearest positive root, which represents the nearest term
 			int nearestTerm = (int) Math.round((Math.sqrt(9 - 8 * (2 - term)) + 3) / 4);
 			int nearestNum = 2 * nearestTerm * nearestTerm - 3 * nearestTerm + 2;
 			int top = (2 * nearestTerm - 1) - Math.abs(term - nearestNum);
-			
+
 			//use quadratic formula to find the nearest positive root, which represents the nearest term
 			nearestTerm = (int) Math.round((Math.sqrt(1 - 8 * (1 - term)) + 1) / 4);
 			nearestNum = 2 * nearestTerm * nearestTerm - nearestTerm + 1;
 			int bot = 2 * nearestTerm - Math.abs(term - nearestNum);
-			
+
 			System.out.println("TERM " + term + " IS " + top + "/" + bot);
 		}
+	}
+
+	/**
+	 * Attempt classical solution -> Onotole needs your help, ID 7742 due to TIME LIMIT EXCEEDED
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void onotoleNeedsYourHelp () throws NumberFormatException, IOException
+	{
+		FastReader reader = new FastReader();
+		int numInput = reader.nextInt();
+		int current = 0;
+		while (numInput-- > 0)
+			current ^= reader.nextInt();
+		
+		System.out.println(current);
 	}
 }
