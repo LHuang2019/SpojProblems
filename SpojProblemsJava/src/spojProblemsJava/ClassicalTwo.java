@@ -2,7 +2,9 @@ package spojProblemsJava;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigInteger;
 import java.util.Arrays;
+import java.util.Scanner;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
@@ -306,5 +308,25 @@ public class ClassicalTwo {
 			current ^= reader.nextInt();
 		
 		System.out.println(current);
+	}
+	
+	/**
+	 * Solved classical -> Bishops, ID 328
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void bishops () throws NumberFormatException, IOException
+	{
+		Scanner reader = new Scanner(System.in);
+		while (reader.hasNextBigInteger())
+		{
+			BigInteger current = new BigInteger(reader.nextLine());
+			if (current.compareTo(BigInteger.ONE) == 0)
+				System.out.println(1);
+			else
+				System.out.println(current.add(current).subtract(new BigInteger("2")));
+		}
+		
+		reader.close();
 	}
 }
