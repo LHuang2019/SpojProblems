@@ -1,4 +1,4 @@
-package spojProblems;
+package spojProblemsJava;
 
 /**
  * Class which solves the given problem

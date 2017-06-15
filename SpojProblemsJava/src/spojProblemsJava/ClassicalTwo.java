@@ -1,13 +1,12 @@
-package spojProblems;
+package spojProblemsJava;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
-import spojProblems.FastIO.FastReader;
+import spojProblemsJava.FastIO.FastReader;
 
 /**
  * Class which has the solution for the 25 solved classical problems after Classicalone

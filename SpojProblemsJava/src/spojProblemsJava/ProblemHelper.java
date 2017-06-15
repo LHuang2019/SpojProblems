@@ -1,4 +1,4 @@
-package spojProblems;
+package spojProblemsJava;
 
 import java.math.BigInteger;
 import java.util.HashMap;

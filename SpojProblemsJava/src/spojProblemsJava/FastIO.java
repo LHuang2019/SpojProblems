@@ -1,4 +1,4 @@
-package spojProblems;
+package spojProblemsJava;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
