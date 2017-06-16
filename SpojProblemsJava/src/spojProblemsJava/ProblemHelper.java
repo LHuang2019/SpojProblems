@@ -134,7 +134,7 @@ public class ProblemHelper {
 		int output = 0;
 		while (input != 0)
 		{
-			output += Math.sqrt(input % 10);
+			output += Math.pow(input % 10, 2);
 			input /= 10;
 		}
 		
