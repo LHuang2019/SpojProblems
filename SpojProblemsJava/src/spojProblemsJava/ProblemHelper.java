@@ -120,4 +120,24 @@ public class ProblemHelper {
 				
 		return map;
 	}
+	
+	/**
+	 * helper method that returns the sum of all squared digits inside the inpu integer
+	 * example:
+	 * 	input: abc
+	 * 	output: a^2 + b^2 + c^2
+	 * @param input the input number
+	 * @return output the sum squared digits.
+	 */
+	public static int digitSquareSum (int input)
+	{
+		int output = 0;
+		while (input != 0)
+		{
+			output += Math.sqrt(input % 10);
+			input /= 10;
+		}
+		
+		return output;
+	}
 }
