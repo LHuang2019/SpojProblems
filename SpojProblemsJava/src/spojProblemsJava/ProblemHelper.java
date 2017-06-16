@@ -122,7 +122,7 @@ public class ProblemHelper {
 	}
 	
 	/**
-	 * helper method that returns the sum of all squared digits inside the inpu integer
+	 * helper method that returns the sum of all squared digits inside the input integer
 	 * example:
 	 * 	input: abc
 	 * 	output: a^2 + b^2 + c^2
