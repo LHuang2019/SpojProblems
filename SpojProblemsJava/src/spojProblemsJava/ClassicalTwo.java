@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Stack;
 import java.util.StringTokenizer;
@@ -328,5 +329,39 @@ public class ClassicalTwo {
 		}
 		
 		reader.close();
+	}
+	
+	/**
+	 * Solved classical -> Happy Numbers I, ID 7733
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void happyNumbersI () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		int input = Integer.parseInt(reader.readLine());
+		int reverse = ProblemHelper.reverseInt(input);
+		
+		int count = 0;
+		HashSet<Integer> set = new HashSet<Integer>();
+		
+		while (!set.contains(input) && !set.contains(reverse))
+		{
+			if (input == 1 || reverse == 1)
+			{
+				System.out.println(count + 1);
+				return;
+			}
+			
+			set.add(input);
+			set.add(reverse);
+			
+			input = ProblemHelper.digitSquareSum(input);
+			reverse = ProblemHelper.reverseInt(input);
+			count++;
+		}
+		
+		System.out.println(-1);
 	}
 }
