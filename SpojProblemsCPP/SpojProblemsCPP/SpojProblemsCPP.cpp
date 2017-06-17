@@ -2,9 +2,10 @@
 //
 
 #include "stdafx.h"
-
+#include "ClassicalOne.h"
 
 int main()
 {
+	ClassicalOne::completeTheSeriesEasy();
     return 0;
 }
