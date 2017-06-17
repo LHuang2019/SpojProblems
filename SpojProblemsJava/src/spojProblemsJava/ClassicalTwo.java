@@ -13,7 +13,7 @@ import java.util.StringTokenizer;
 import spojProblemsJava.FastIO.FastReader;
 
 /**
- * Class which has the solution for the 25 solved classical problems after Classicalone
+ * Class which has the solution for the 25 solved classical problems after ClassicalOne
  * @author Li Huang
  * @version 6.4.2017
  */
