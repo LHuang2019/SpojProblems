@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.Scanner;
 import java.util.Stack;
 import java.util.StringTokenizer;
@@ -363,5 +364,42 @@ public class ClassicalTwo {
 		}
 		
 		System.out.println(-1);
+	}
+	
+	/**
+	 * Solved classical -> Penney Game, ID 8612
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void penneyGame () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int numInput = Integer.parseInt(reader.readLine());
+		
+		while (numInput-- > 0)
+		{
+			System.out.print(reader.readLine());
+			
+			LinkedHashMap<String, Integer> map = new LinkedHashMap<String, Integer>();
+			
+			map.put("TTT", 0);
+			map.put("TTH", 0);
+			map.put("THT", 0);
+			map.put("THH", 0);
+			map.put("HTT", 0);
+			map.put("HTH", 0);
+			map.put("HHT", 0);
+			map.put("HHH", 0);
+			
+			String str = reader.readLine();
+			
+			for (int i = 0; i < str.length() - 2; i++)
+				map.put(str.substring(i,  i + 3), map.get(str.substring(i, i + 3)) + 1);
+			
+			for (Integer value : map.values())	
+				System.out.print(" " + value);
+			
+			System.out.println();
+		}
 	}
 }
