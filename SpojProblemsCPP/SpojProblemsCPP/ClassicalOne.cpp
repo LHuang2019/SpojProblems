@@ -27,3 +27,23 @@ void ClassicalOne::completeTheSeriesEasy()
 		printf("\n");
 	}
 }
+
+/*
+Solved classical -> Onotole needs your help, ID 7742
+reference: https://medium.com/@Sirvan3TR/c-xor-solution-to-an-odd-occurrence-681c04e0295
+*/
+void ClassicalOne::onotoleNeedsYourHelp()
+{
+	int numInput, current;
+	int result = 0;
+
+	scanf("%d", &numInput);
+
+	while (numInput--)
+	{
+		scanf("%d", &current);
+		result = result ^ current;
+	}
+
+	printf("%d", result);
+}

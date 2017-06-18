@@ -6,6 +6,6 @@
 
 int main()
 {
-	ClassicalOne::completeTheSeriesEasy();
+	ClassicalOne::onotoleNeedsYourHelp();
     return 0;
 }
