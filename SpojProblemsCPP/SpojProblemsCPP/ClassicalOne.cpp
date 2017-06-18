@@ -1,9 +1,9 @@
 #include "stdafx.h"
 #include "ClassicalOne.h"
 
-/**
-* Solved classical -> AP - Complete The Series (Easy), ID 11063
-**/
+/*
+Solved classical -> AP - Complete The Series (Easy), ID 11063
+*/
 void ClassicalOne::completeTheSeriesEasy()
 {
 	int numInput;
