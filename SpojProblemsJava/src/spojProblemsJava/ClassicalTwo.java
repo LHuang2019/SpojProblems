@@ -264,22 +264,6 @@ public class ClassicalTwo {
 			System.out.println("TERM " + term + " IS " + top + "/" + bot);
 		}
 	}
-
-	/**
-	 * Attempt classical solution -> Onotole needs your help, ID 7742 due to TIME LIMIT EXCEEDED
-	 * @throws NumberFormatException
-	 * @throws IOException
-	 */
-	public static void onotoleNeedsYourHelp () throws NumberFormatException, IOException
-	{
-		FastReader reader = new FastReader();
-		int numInput = reader.nextInt();
-		int current = 0;
-		while (numInput-- > 0)
-			current ^= reader.nextInt();
-		
-		System.out.println(current);
-	}
 	
 	/**
 	 * Solved classical -> Bishops, ID 328
