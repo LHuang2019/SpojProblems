@@ -682,7 +682,7 @@ public class ClassicalOne {
 			System.out.println(maxOne >= maxTwo ? "Godzilla" : "MechaGodzilla");
 		}
 	}
-	
+
 	/**
 	 * Solved classical -> Ambiguous Permutations, ID 379
 	 * @throws NumberFormatException
