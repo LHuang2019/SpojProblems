@@ -1,5 +1,9 @@
 #include "stdafx.h"
 #include "ClassicalOne.h"
+#include <string>
+#include <iostream>
+
+using namespace std;
 
 /*
 Solved classical -> AP - Complete The Series (Easy), ID 11063
@@ -46,4 +50,49 @@ void ClassicalOne::onotoleNeedsYourHelp()
 	}
 
 	printf("%d", result);
+}
+
+void ClassicalOne::theNextPalindrome()
+{
+	int numInput;
+	string input, left, right, leftR, output;
+	long leftRInt;
+	scanf("%d", &numInput);
+
+	while (numInput--)
+	{
+		cin >> input;
+		if (input.length() < 2)
+		{
+			printf("%d", stoi(input) == 9 ? 11 : stoi(input) + 1);
+			continue;
+		}
+
+		while (true)
+		{
+			left = leftR = input.substr(0, input.length() / 2);
+			reverse(leftR.begin(), leftR.end());
+			right = input.substr(input.length() / 2 + input.length() % 2, input.length());
+
+			leftRInt = stol(leftR);
+			if (leftRInt > stol(right))
+			{
+				if (leftRInt == 1)
+				{
+					output = input.substr(0, input.length() - 1);
+					output += "1";
+				}
+				else
+				{
+					output = input.substr(0, input.length() / 2 + input.length() % 2);
+					output += leftR;
+				}
+				cout << output << "\n";
+				break;
+			}
+
+			output = to_string(stol(input.substr(0, input.length() / 2 + input.length() % 2)) + 1);
+			input = output + right.replace(0, right.length(), "0");
+		}
+	}
 }

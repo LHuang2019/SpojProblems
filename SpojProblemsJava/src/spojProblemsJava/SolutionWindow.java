@@ -7,13 +7,13 @@ package spojProblemsJava;
  */
 public class SolutionWindow {
 
-    /**
-     * The main method
-     * @param args
-     * @throws java.lang.Exception
-     */
-    public static void main (String[] args) throws java.lang.Exception
-    {
-    	  ClassicalTwo.penneyGame();
-    }
+	/**
+	 * The main method
+	 * @param args
+	 * @throws java.lang.Exception
+	 */
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		ClassicalOne.theNextPalindrome();
+	}
 }

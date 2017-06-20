@@ -6,6 +6,6 @@
 
 int main()
 {
-	ClassicalOne::onotoleNeedsYourHelp();
+	ClassicalOne::theNextPalindrome();
     return 0;
 }
