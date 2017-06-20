@@ -262,7 +262,7 @@ public class ClassicalTwo {
 			System.out.println("TERM " + term + " IS " + top + "/" + bot);
 		}
 	}
-	
+
 	/**
 	 * Solved classical -> Bishops, ID 328
 	 * @throws NumberFormatException
@@ -279,10 +279,10 @@ public class ClassicalTwo {
 			else
 				System.out.println(current.add(current).subtract(new BigInteger("2")));
 		}
-		
+
 		reader.close();
 	}
-	
+
 	/**
 	 * Solved classical -> Happy Numbers I, ID 7733
 	 * @throws NumberFormatException
@@ -291,13 +291,13 @@ public class ClassicalTwo {
 	public static void happyNumbersI () throws NumberFormatException, IOException
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		
+
 		int input = Integer.parseInt(reader.readLine());
 		int reverse = ProblemHelper.reverseInt(input);
-		
+
 		int count = 0;
 		HashSet<Integer> set = new HashSet<Integer>();
-		
+
 		while (!set.contains(input) && !set.contains(reverse))
 		{
 			if (input == 1 || reverse == 1)
@@ -305,18 +305,18 @@ public class ClassicalTwo {
 				System.out.println(count + 1);
 				return;
 			}
-			
+
 			set.add(input);
 			set.add(reverse);
-			
+
 			input = ProblemHelper.digitSquareSum(input);
 			reverse = ProblemHelper.reverseInt(input);
 			count++;
 		}
-		
+
 		System.out.println(-1);
 	}
-	
+
 	/**
 	 * Solved classical -> Penney Game, ID 8612
 	 * @throws NumberFormatException
@@ -326,13 +326,13 @@ public class ClassicalTwo {
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		int numInput = Integer.parseInt(reader.readLine());
-		
+
 		while (numInput-- > 0)
 		{
 			System.out.print(reader.readLine());
-			
+
 			LinkedHashMap<String, Integer> map = new LinkedHashMap<String, Integer>();
-			
+
 			map.put("TTT", 0);
 			map.put("TTH", 0);
 			map.put("THT", 0);
@@ -341,19 +341,19 @@ public class ClassicalTwo {
 			map.put("HTH", 0);
 			map.put("HHT", 0);
 			map.put("HHH", 0);
-			
+
 			String str = reader.readLine();
-			
+
 			for (int i = 0; i < str.length() - 2; i++)
 				map.put(str.substring(i,  i + 3), map.get(str.substring(i, i + 3)) + 1);
-			
+
 			for (Integer value : map.values())	
 				System.out.print(" " + value);
-			
+
 			System.out.println();
 		}
 	}
-	
+
 	/**
 	 * Solved classical -> The last digit re-visited, ID 5699
 	 * @throws NumberFormatException
@@ -368,8 +368,46 @@ public class ClassicalTwo {
 			String[] input = reader.readLine().split(" ");
 			BigInteger a = new BigInteger(input[0]);
 			BigInteger b = new BigInteger(input[1]);
-			
+
 			System.out.println(a.modPow(b, BigInteger.TEN));
+		}
+	}
+
+	/**
+	 * Solved classical -> Simple Arithmetics II, ID 4452
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void simpleArithmeticsII () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int numInput = Integer.parseInt(reader.readLine());
+
+		while(numInput-- > 0)
+		{
+			reader.readLine();
+			StringTokenizer input = new StringTokenizer(reader.readLine());
+			long answer = Integer.parseInt(input.nextToken());
+
+			while(input.hasMoreTokens())
+			{
+				String current = input.nextToken();
+				if (current.equals("+"))
+					answer += Long.parseLong(input.nextToken());
+				else if (current.equals("-"))
+					answer -= Long.parseLong(input.nextToken());
+				else if (current.equals("*"))
+					answer *= Long.parseLong(input.nextToken());
+				else if (current.equals("/"))
+					answer /= Long.parseLong(input.nextToken());
+				else
+					break;
+
+				if (!input.hasMoreTokens())
+					input = new StringTokenizer(reader.readLine());
+			}
+			
+			System.out.println(answer);
 		}
 	}
 }
