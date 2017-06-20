@@ -10,8 +10,6 @@ import java.util.Scanner;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
-import spojProblemsJava.FastIO.FastReader;
-
 /**
  * Class which has the solution for the 25 solved classical problems after ClassicalOne
  * @author Li Huang
@@ -353,6 +351,25 @@ public class ClassicalTwo {
 				System.out.print(" " + value);
 			
 			System.out.println();
+		}
+	}
+	
+	/**
+	 * Solved classical -> The last digit re-visited, ID 5699
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void theLastDigitRevisted () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int numInput = Integer.parseInt(reader.readLine());
+		while (numInput-- > 0)
+		{
+			String[] input = reader.readLine().split(" ");
+			BigInteger a = new BigInteger(input[0]);
+			BigInteger b = new BigInteger(input[1]);
+			
+			System.out.println(a.modPow(b, BigInteger.TEN));
 		}
 	}
 }
