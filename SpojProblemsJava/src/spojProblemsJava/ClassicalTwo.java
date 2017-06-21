@@ -410,4 +410,26 @@ public class ClassicalTwo {
 			System.out.println(answer);
 		}
 	}
+	
+	/**
+	 * Solved classical -> Tables, ID 4301
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void tables () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int [] target = ProblemHelper.parseIntArray(reader.readLine().split(" "));
+		int [] box = ProblemHelper.parseIntArray(reader.readLine().split(" "));
+		
+		Arrays.sort(box);
+		int sum = 0, i = 0;
+		while (sum < target[1] * target[2])
+		{
+			sum += box[box.length - 1 - i];
+			i++;
+		}
+		
+		System.out.println(i);
+	}
 }
