@@ -432,4 +432,18 @@ public class ClassicalTwo {
 		
 		System.out.println(i);
 	}
+	
+	/**
+	 * Solved classical -> Hubulullu , ID 1028
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void hubulullu () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int numInput = Integer.parseInt(reader.readLine());
+		
+		while (numInput-- > 0)
+			System.out.println(reader.readLine().split(" ")[1].equals("0") ? "Airborne wins" : "Pagfloyd wins");
+	}
 }
