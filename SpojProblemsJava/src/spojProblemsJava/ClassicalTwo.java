@@ -446,4 +446,52 @@ public class ClassicalTwo {
 		while (numInput-- > 0)
 			System.out.println(reader.readLine().split(" ")[1].equals("0") ? "Airborne wins" : "Pagfloyd wins");
 	}
+	
+	/**
+	 * Solved classical -> Christmas Play, ID 8061
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void christmasPlay () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int numInput = Integer.parseInt(reader.readLine());
+		
+		outerLoop:
+		while (numInput-- > 0)
+		{
+			int selection = Integer.parseInt(reader.readLine().split(" ")[1]);
+			if (selection == 1)
+			{
+				reader.readLine();
+				System.out.println(0);
+			}
+			else
+			{
+				int min = 1000000000;
+				int[] arr = ProblemHelper.parseIntArray(reader.readLine().split(" "));
+				Arrays.sort(arr);
+				
+				if (arr.length == selection)
+				{
+					System.out.println(arr[arr.length - 1] - arr[0]);
+					continue outerLoop;
+				}
+				
+				for (int i = 0; i <= arr.length - selection; i++)
+				{
+					if (min > arr[i + selection - 1] - arr[i])
+						min = arr[i + selection - 1] - arr[i];
+					
+					if (min == 0)
+					{
+						System.out.println(0);
+						continue outerLoop;
+					}
+				}
+				
+				System.out.println(min);
+			}
+		}	
+	}
 }
