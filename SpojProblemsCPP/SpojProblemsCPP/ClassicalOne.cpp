@@ -96,3 +96,25 @@ void ClassicalOne::theNextPalindrome()
 		}
 	}
 }
+
+/*
+Solved classical -> Sum Of Digits, ID 29154
+*/
+void ClassicalOne::sumOfDigits()
+{
+	int numInput;
+	string current;
+
+	scanf("%d", &numInput);
+	
+	while (numInput--)
+	{
+		cin >> current;
+		int answer = 0;
+
+		for (int i = 0; i < current.length(); i++)
+			answer += (current[i] - '0');
+		
+		printf("%d\n", answer);
+	}
+}

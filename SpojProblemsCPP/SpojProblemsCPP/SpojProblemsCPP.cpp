@@ -6,6 +6,6 @@
 
 int main()
 {
-	ClassicalOne::theNextPalindrome();
+	ClassicalOne::sumOfDigits();
     return 0;
 }
