@@ -6,6 +6,6 @@
 
 int main()
 {
-	ClassicalOne::sumOfDigits();
+	ClassicalOne::amr12d();
     return 0;
 }

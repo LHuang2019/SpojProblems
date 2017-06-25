@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "ClassicalOne.h"
 #include <string>
+#include <algorithm>
 #include <iostream>
 
 using namespace std;
@@ -116,5 +117,23 @@ void ClassicalOne::sumOfDigits()
 			answer += (current[i] - '0');
 		
 		printf("%d\n", answer);
+	}
+}
+
+/*
+Solved classical -> The Mirror of Galadriel, ID 13043
+*/
+void ClassicalOne::amr12d()
+{
+	int numInput;
+	string current, rev;
+	scanf("%d", &numInput);
+
+	while (numInput--)
+	{
+		cin >> current;
+		rev = current;
+		reverse(rev.begin(), rev.end());
+		cout << (current == rev ? "YES" : "NO") << "\n";
 	}
 }

@@ -6,4 +6,5 @@ public:
 	static void onotoleNeedsYourHelp();
 	static void theNextPalindrome();
 	static void sumOfDigits();
+	static void amr12d();
 };
