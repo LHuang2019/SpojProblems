@@ -494,4 +494,36 @@ public class ClassicalTwo {
 			}
 		}	
 	}
+	
+	/**
+	 * Solved classical -> Black Widow Rings, ID 17110
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void bwidow () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int numInput = Integer.parseInt(reader.readLine());
+		
+		while (numInput-- > 0)
+		{
+			boolean condition = false;
+			int index = 1, currentNumInput = Integer.parseInt(reader.readLine());
+			int[] arr = ProblemHelper.parseIntArray(reader.readLine().split(" "));
+			for (int i = 2; i <= currentNumInput; i++)
+			{
+				int[] temp = ProblemHelper.parseIntArray(reader.readLine().split(" "));
+				if (temp[0] > arr[1])
+				{
+					arr = temp;
+					index = i;
+					condition = false;
+				}
+				else
+					condition = temp[0] == arr[1] || arr[0] < temp[1] ? true : condition;
+			}
+			
+			System.out.println(condition ? -1  : index);
+		}
+	}
 }
