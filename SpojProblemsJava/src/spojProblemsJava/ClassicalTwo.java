@@ -526,4 +526,18 @@ public class ClassicalTwo {
 			System.out.println(condition ? -1  : index);
 		}
 	}
+	
+	/**
+	 * Solved classical -> D - Playing with Marbles, ID 6694
+	 * http://www.s-cool.co.uk/gcse/maths/sequences/revise-it/the-nth-term
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void bomarble () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		for (int current = Integer.parseInt(reader.readLine()); current > 0; current = Integer.parseInt(reader.readLine()))
+			System.out.println((int)(5 + (current - 1) * 7 + 0.5 * (current - 1) * (current - 2) * 3));
+	}
 }
