@@ -4,9 +4,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
@@ -539,5 +541,31 @@ public class ClassicalTwo {
 		
 		for (int current = Integer.parseInt(reader.readLine()); current > 0; current = Integer.parseInt(reader.readLine()))
 			System.out.println((int)(5 + (current - 1) * 7 + 0.5 * (current - 1) * (current - 2) * 3));
+	}
+	
+	/**
+	 * Solved classical ->  Friends of Friends, ID 9788
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void facefrnd () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		int numInput = Integer.parseInt(reader.readLine());
+		StringTokenizer input;
+		Set<String> set = new HashSet<String>();
+		
+		for (int i = 0; i < numInput; i++)
+		{	
+			input = new StringTokenizer(reader.readLine());
+			set.add(input.nextToken());
+			input.nextToken();
+			
+			while(input.hasMoreTokens())
+				set.add(input.nextToken());
+		}
+		
+		System.out.println(set.size() - numInput);
 	}
 }
