@@ -568,4 +568,41 @@ public class ClassicalTwo {
 		
 		System.out.println(set.size() - numInput);
 	}
+	
+	/**
+	 * Solved classical -> He is offside!, ID 2178
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void offside () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer input;
+		
+		outerLoop:
+		while(!reader.readLine().equals("0 0"))
+		{
+			int min = Integer.MAX_VALUE, count = 0, current;
+			
+			input = new StringTokenizer(reader.readLine());
+			while (input.hasMoreTokens())
+			{
+				current = Integer.parseInt(input.nextToken());
+				min = min > current ? current : min;
+			}
+			
+			input = new StringTokenizer(reader.readLine());
+			while (input.hasMoreTokens())
+			{
+				count = min >= Integer.parseInt(input.nextToken()) ? count + 1 : count;
+				if (count > 1)
+				{
+					System.out.println("N");
+					continue outerLoop;
+				}
+			}
+			
+			System.out.println("Y");
+		}
+	}
 }
