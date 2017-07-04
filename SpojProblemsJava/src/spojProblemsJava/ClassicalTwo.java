@@ -605,4 +605,21 @@ public class ClassicalTwo {
 			System.out.println("Y");
 		}
 	}
+	
+	/**
+	 * Solved classical -> Alice Sieve, ID 10565
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void alicesie () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int numInput = Integer.parseInt(reader.readLine());
+		
+		while (numInput-- > 0)
+		{
+			int current = Integer.parseInt(reader.readLine());
+			System.out.println(current - (int)(0.25 * (2 * current + Math.pow(-1, current) + 3)) + 1);
+		}
+	}
 }
