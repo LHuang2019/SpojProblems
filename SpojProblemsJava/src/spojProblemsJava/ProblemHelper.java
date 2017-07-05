@@ -140,4 +140,22 @@ public class ProblemHelper {
 		
 		return output;
 	}
+	
+    /**
+     * helper method which returns the gcd of x and y
+     * @param x the x value
+     * @param y the y value
+     * @return gcd the gcd of x and y
+     */
+    public static int greatestCommonDivider(int x, int y)
+    {
+        int i;
+        while (y != 0)
+        {
+            i = y;
+            y = x % y;
+            x = i;
+        }
+        return x;
+    }
 }
