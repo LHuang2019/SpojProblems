@@ -622,4 +622,23 @@ public class ClassicalTwo {
 			System.out.println(current - (int)(0.25 * (2 * current + Math.pow(-1, current) + 3)) + 1);
 		}
 	}
+	
+	/**
+	 * Solved classical -> PLAY WITH MATH, ID 15965
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void enigmath () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int numInput = Integer.parseInt(reader.readLine());
+		int[] arr;
+		
+		while (numInput-- > 0)
+		{
+			arr = ProblemHelper.parseIntArray(reader.readLine().split(" "));
+			int gcd = ProblemHelper.greatestCommonDivider(arr[0], arr[1]);
+			System.out.println(arr[1] / gcd + " " + arr[0] / gcd);
+		}
+	}
 }
