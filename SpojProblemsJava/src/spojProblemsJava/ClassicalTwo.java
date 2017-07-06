@@ -408,11 +408,11 @@ public class ClassicalTwo {
 				if (!input.hasMoreTokens())
 					input = new StringTokenizer(reader.readLine());
 			}
-			
+
 			System.out.println(answer);
 		}
 	}
-	
+
 	/**
 	 * Solved classical -> Tables, ID 4301
 	 * @throws NumberFormatException
@@ -423,7 +423,7 @@ public class ClassicalTwo {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		int [] target = ProblemHelper.parseIntArray(reader.readLine().split(" "));
 		int [] box = ProblemHelper.parseIntArray(reader.readLine().split(" "));
-		
+
 		Arrays.sort(box);
 		int sum = 0, i = 0;
 		while (sum < target[1] * target[2])
@@ -431,10 +431,10 @@ public class ClassicalTwo {
 			sum += box[box.length - 1 - i];
 			i++;
 		}
-		
+
 		System.out.println(i);
 	}
-	
+
 	/**
 	 * Solved classical -> Hubulullu , ID 1028
 	 * @throws NumberFormatException
@@ -444,11 +444,11 @@ public class ClassicalTwo {
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		int numInput = Integer.parseInt(reader.readLine());
-		
+
 		while (numInput-- > 0)
 			System.out.println(reader.readLine().split(" ")[1].equals("0") ? "Airborne wins" : "Pagfloyd wins");
 	}
-	
+
 	/**
 	 * Solved classical -> Christmas Play, ID 8061
 	 * @throws NumberFormatException
@@ -458,45 +458,45 @@ public class ClassicalTwo {
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		int numInput = Integer.parseInt(reader.readLine());
-		
+
 		outerLoop:
-		while (numInput-- > 0)
-		{
-			int selection = Integer.parseInt(reader.readLine().split(" ")[1]);
-			if (selection == 1)
+			while (numInput-- > 0)
 			{
-				reader.readLine();
-				System.out.println(0);
-			}
-			else
-			{
-				int min = 1000000000;
-				int[] arr = ProblemHelper.parseIntArray(reader.readLine().split(" "));
-				Arrays.sort(arr);
-				
-				if (arr.length == selection)
+				int selection = Integer.parseInt(reader.readLine().split(" ")[1]);
+				if (selection == 1)
 				{
-					System.out.println(arr[arr.length - 1] - arr[0]);
-					continue outerLoop;
+					reader.readLine();
+					System.out.println(0);
 				}
-				
-				for (int i = 0; i <= arr.length - selection; i++)
+				else
 				{
-					if (min > arr[i + selection - 1] - arr[i])
-						min = arr[i + selection - 1] - arr[i];
-					
-					if (min == 0)
+					int min = 1000000000;
+					int[] arr = ProblemHelper.parseIntArray(reader.readLine().split(" "));
+					Arrays.sort(arr);
+
+					if (arr.length == selection)
 					{
-						System.out.println(0);
+						System.out.println(arr[arr.length - 1] - arr[0]);
 						continue outerLoop;
 					}
+
+					for (int i = 0; i <= arr.length - selection; i++)
+					{
+						if (min > arr[i + selection - 1] - arr[i])
+							min = arr[i + selection - 1] - arr[i];
+
+						if (min == 0)
+						{
+							System.out.println(0);
+							continue outerLoop;
+						}
+					}
+
+					System.out.println(min);
 				}
-				
-				System.out.println(min);
-			}
-		}	
+			}	
 	}
-	
+
 	/**
 	 * Solved classical -> Black Widow Rings, ID 17110
 	 * @throws NumberFormatException
@@ -506,7 +506,7 @@ public class ClassicalTwo {
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		int numInput = Integer.parseInt(reader.readLine());
-		
+
 		while (numInput-- > 0)
 		{
 			boolean condition = false;
@@ -524,11 +524,11 @@ public class ClassicalTwo {
 				else
 					condition = temp[0] == arr[1] || arr[0] < temp[1] ? true : condition;
 			}
-			
+
 			System.out.println(condition ? -1  : index);
 		}
 	}
-	
+
 	/**
 	 * Solved classical -> D - Playing with Marbles, ID 6694
 	 * http://www.s-cool.co.uk/gcse/maths/sequences/revise-it/the-nth-term
@@ -538,11 +538,11 @@ public class ClassicalTwo {
 	public static void bomarble () throws NumberFormatException, IOException
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		
+
 		for (int current = Integer.parseInt(reader.readLine()); current > 0; current = Integer.parseInt(reader.readLine()))
 			System.out.println((int)(5 + (current - 1) * 7 + 0.5 * (current - 1) * (current - 2) * 3));
 	}
-	
+
 	/**
 	 * Solved classical ->  Friends of Friends, ID 9788
 	 * @throws NumberFormatException
@@ -551,24 +551,24 @@ public class ClassicalTwo {
 	public static void facefrnd () throws NumberFormatException, IOException
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		
+
 		int numInput = Integer.parseInt(reader.readLine());
 		StringTokenizer input;
 		Set<String> set = new HashSet<String>();
-		
+
 		for (int i = 0; i < numInput; i++)
 		{	
 			input = new StringTokenizer(reader.readLine());
 			set.add(input.nextToken());
 			input.nextToken();
-			
+
 			while(input.hasMoreTokens())
 				set.add(input.nextToken());
 		}
-		
+
 		System.out.println(set.size() - numInput);
 	}
-	
+
 	/**
 	 * Solved classical -> He is offside!, ID 2178
 	 * @throws NumberFormatException
@@ -578,34 +578,34 @@ public class ClassicalTwo {
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer input;
-		
+
 		outerLoop:
-		while(!reader.readLine().equals("0 0"))
-		{
-			int min = Integer.MAX_VALUE, count = 0, current;
-			
-			input = new StringTokenizer(reader.readLine());
-			while (input.hasMoreTokens())
+			while(!reader.readLine().equals("0 0"))
 			{
-				current = Integer.parseInt(input.nextToken());
-				min = min > current ? current : min;
-			}
-			
-			input = new StringTokenizer(reader.readLine());
-			while (input.hasMoreTokens())
-			{
-				count = min >= Integer.parseInt(input.nextToken()) ? count + 1 : count;
-				if (count > 1)
+				int min = Integer.MAX_VALUE, count = 0, current;
+
+				input = new StringTokenizer(reader.readLine());
+				while (input.hasMoreTokens())
 				{
-					System.out.println("N");
-					continue outerLoop;
+					current = Integer.parseInt(input.nextToken());
+					min = min > current ? current : min;
 				}
+
+				input = new StringTokenizer(reader.readLine());
+				while (input.hasMoreTokens())
+				{
+					count = min >= Integer.parseInt(input.nextToken()) ? count + 1 : count;
+					if (count > 1)
+					{
+						System.out.println("N");
+						continue outerLoop;
+					}
+				}
+
+				System.out.println("Y");
 			}
-			
-			System.out.println("Y");
-		}
 	}
-	
+
 	/**
 	 * Solved classical -> Alice Sieve, ID 10565
 	 * @throws NumberFormatException
@@ -615,14 +615,14 @@ public class ClassicalTwo {
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		int numInput = Integer.parseInt(reader.readLine());
-		
+
 		while (numInput-- > 0)
 		{
 			int current = Integer.parseInt(reader.readLine());
 			System.out.println(current - (int)(0.25 * (2 * current + Math.pow(-1, current) + 3)) + 1);
 		}
 	}
-	
+
 	/**
 	 * Solved classical -> PLAY WITH MATH, ID 15965
 	 * @throws NumberFormatException
@@ -633,12 +633,46 @@ public class ClassicalTwo {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		int numInput = Integer.parseInt(reader.readLine());
 		int[] arr;
-		
+
 		while (numInput-- > 0)
 		{
 			arr = ProblemHelper.parseIntArray(reader.readLine().split(" "));
 			int gcd = ProblemHelper.greatestCommonDivider(arr[0], arr[1]);
 			System.out.println(arr[1] / gcd + " " + arr[0] / gcd);
+		}
+	}
+
+	/**
+	 * Solved calssical -> Seinfeld, ID 5449
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
+	public static void anarc09a () throws NumberFormatException, IOException
+	{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int num = 1;
+		String current = reader.readLine();
+		while (!current.contains("-"))
+		{
+			Stack<Character> stack = new Stack<Character>();
+			for (int i = 0; i < current.length(); i++)
+				if (!stack.empty() && current.charAt(i) == '}' && stack.peek() == '{') stack.pop();
+				else
+					stack.push(current.charAt(i));
+
+			if (stack.size() == 1)
+				System.out.println(num + ". " + 1);
+
+			else
+			{
+				int ans = stack.size() - stack.size() % 2;
+				while (stack.size() > 1)
+					ans = stack.pop().equals(stack.pop()) ? ans - 1 : ans;
+
+				System.out.println(num + ". " + ans);
+			}
+			current = reader.readLine();
+			num++;
 		}
 	}
 }
