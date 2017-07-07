@@ -1,8 +1,9 @@
 #include "stdafx.h"
 #include "ClassicalOne.h"
-#include <string>
-#include <algorithm>
 #include <iostream>
+#include <algorithm>
+#include <string>
+#include <unordered_map>
 
 using namespace std;
 
@@ -135,5 +136,52 @@ void ClassicalOne::amr12d()
 		rev = current;
 		reverse(rev.begin(), rev.end());
 		cout << (current == rev ? "YES" : "NO") << "\n";
+	}
+}
+
+/*
+Solved classical -> Majority, ID 6171
+*/
+void ClassicalOne::major()
+{
+	int numInput, numCurrent, current;
+	scanf("%d", &numInput);
+
+	outerLoop:
+	while (numInput--)
+	{
+		scanf("%d", &numCurrent);
+		
+		if (numCurrent == 0)
+		{
+			printf("NO\n");
+			goto outerLoop;
+		}
+
+		unordered_map<int, int> umap;
+
+		for (int i = 0; i < numCurrent; i++)
+		{
+			scanf("%d", &current);
+			umap[current] = umap.find(current) == umap.end() ? 1 : umap[current] + 1;
+		}
+
+		int max = 0;
+		for (pair<int, int> element : umap)
+		{
+			if (element.second > numCurrent / 2)
+			{
+				printf("YES %d\n", element.first);
+				goto outerLoop;
+			}
+			max += element.second;
+
+			if (max >= (numCurrent + numCurrent % 2))
+			{
+				printf("NO\n");
+				goto outerLoop;
+			}
+		}
+		printf("NO\n");
 	}
 }

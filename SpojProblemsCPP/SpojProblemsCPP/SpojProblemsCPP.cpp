@@ -6,6 +6,6 @@
 
 int main()
 {
-	ClassicalOne::amr12d();
+	ClassicalOne::major();
     return 0;
 }
