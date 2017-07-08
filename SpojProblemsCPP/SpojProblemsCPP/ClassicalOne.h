@@ -8,4 +8,5 @@ public:
 	static void sumOfDigits();
 	static void amr12d();
 	static void major();
+	static void acpc11b();
 };

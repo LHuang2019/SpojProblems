@@ -3,6 +3,7 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
+#include <set>
 #include <unordered_map>
 
 using namespace std;
@@ -183,5 +184,54 @@ void ClassicalOne::major()
 			}
 		}
 		printf("NO\n");
+	}
+}
+
+/*
+Solved classical -> Between the Mountains, ID 10239
+*/
+void ClassicalOne::acpc11b()
+{
+	int numInput, nA, nB, current;
+	scanf("%d", &numInput);
+
+	outerLoop:
+	while (numInput--)
+	{
+		set<int> setA, setB;
+
+		scanf("%d", &nA);
+		while (nA--)
+		{
+			cin >> current;
+			setA.insert(current);
+		}
+
+		scanf("%d", &nB);
+		while (nB--)
+		{
+			cin >> current;
+			setB.insert(current);
+		}
+
+		int min = INT_MAX;
+		innerLoop:
+		for (const int &num : setA)
+		{
+			if (setB.find(num) != setB.end())
+			{
+				cout << 0 << "\n";
+				goto outerLoop;
+			}
+			
+			for (const int &num2 : setB)
+			{
+				if (abs(num - num2) >= min)
+					continue;
+
+				min = abs(num - num2);
+			}
+		}
+		cout << min << "\n";
 	}
 }
