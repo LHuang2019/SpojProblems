@@ -235,3 +235,32 @@ void ClassicalOne::acpc11b()
 		cout << min << "\n";
 	}
 }
+
+/*
+Solved classical -> AP - Common Permutation, ID 1728
+*/
+void ClassicalOne::cprmt()
+{
+	string str1, str2;
+	while (cin >> str1 >> str2)
+	{
+		unordered_map<char, int> umapA, umapB;
+		for (int i = 0; i < str1.length(); i++)
+			umapA[str1[i]] = umapA.find(str1[i]) == umapA.end() ? 1 : umapA[str1[i]] + 1;
+		
+
+		for (int j = 0; j < str2.length(); j++)
+			umapB[str2[j]] = umapB.find(str2[j]) == umapB.end() ? 1 : umapB[str2[j]] + 1;
+
+		string ans;
+		for (pair<char, int> element : umapA)
+		{
+			if (umapB.find(element.first) != umapB.end())
+				ans += element.second < umapB[element.first] ? 
+				string(element.second, element.first) : string(umapB[element.first], element.first);
+		}
+
+		sort(ans.begin(), ans.end());
+		cout << ans << "\n";
+	}
+}

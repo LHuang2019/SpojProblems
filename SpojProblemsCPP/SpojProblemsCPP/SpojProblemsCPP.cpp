@@ -6,6 +6,6 @@
 
 int main()
 {
-	ClassicalOne::acpc11b();
+	ClassicalOne::cprmt();
     return 0;
 }

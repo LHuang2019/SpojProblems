@@ -9,4 +9,5 @@ public:
 	static void amr12d();
 	static void major();
 	static void acpc11b();
+	static void cprmt();
 };
