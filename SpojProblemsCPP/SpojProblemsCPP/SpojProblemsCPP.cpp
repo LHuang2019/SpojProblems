@@ -6,6 +6,6 @@
 
 int main()
 {
-	ClassicalOne::cprmt();
+	ClassicalOne::hackrndm();
     return 0;
 }

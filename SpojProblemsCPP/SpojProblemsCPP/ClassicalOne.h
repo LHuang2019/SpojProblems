@@ -10,4 +10,5 @@ public:
 	static void major();
 	static void acpc11b();
 	static void cprmt();
+	static void hackrndm();
 };

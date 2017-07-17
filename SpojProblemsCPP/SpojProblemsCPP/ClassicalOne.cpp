@@ -5,6 +5,7 @@
 #include <string>
 #include <set>
 #include <unordered_map>
+#include <unordered_set>
 
 using namespace std;
 
@@ -263,4 +264,34 @@ void ClassicalOne::cprmt()
 		sort(ans.begin(), ans.end());
 		cout << ans << "\n";
 	}
+}
+
+/*
+Solved classical -> Hacking the random number generator, ID 9734
+*/
+void ClassicalOne::hackrndm() 
+{
+	unordered_set<int> uset;
+	int n, k, current, count = 0;
+	cin >> n >> k;
+
+	for (int i = 0; i < n; i++)
+	{
+		cin >> current;
+		uset.insert(current);
+	}
+
+	unordered_set<int>::iterator it;
+	for (it = uset.begin(); it != uset.end();) {
+		
+		if (uset.find(*it + k) != uset.end())
+			count++;
+		if (uset.find(*it - k) != uset.end())
+			count++;
+
+		unordered_set<int>::iterator current = it++;
+		uset.erase(current);
+	}
+
+	cout << count;
 }
