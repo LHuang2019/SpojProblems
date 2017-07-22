@@ -295,3 +295,21 @@ void ClassicalOne::hackrndm()
 
 	cout << count;
 }
+
+/*
+Solved classical -> THE MAX LINES, ID 8670
+*/
+void ClassicalOne::maxln()
+{
+	int t, i = 0;
+	cin >> t;
+	while (i<t)
+	{
+		long long r;
+		float ac = .5;
+		double s;
+		cin >> r;
+		s = double(4 * r * r) + .25;
+		printf("Case %d: %.2lf\n", ++i, s);
+	}
+}

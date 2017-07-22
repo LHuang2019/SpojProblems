@@ -6,6 +6,6 @@
 
 int main()
 {
-	ClassicalOne::hackrndm();
+	ClassicalOne::maxln();
     return 0;
 }

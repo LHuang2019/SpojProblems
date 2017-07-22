@@ -11,4 +11,5 @@ public:
 	static void acpc11b();
 	static void cprmt();
 	static void hackrndm();
+	static void maxln();
 };
