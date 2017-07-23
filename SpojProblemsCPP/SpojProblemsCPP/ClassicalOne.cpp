@@ -313,3 +313,28 @@ void ClassicalOne::maxln()
 		printf("Case %d: %.2lf\n", ++i, s);
 	}
 }
+
+/*
+Solved classical -> Traversing Grid, ID 5976
+*/
+void ClassicalOne::trgrid()
+{
+	int numInput, m, n;
+	string ans;
+	cin >> numInput;
+	while (numInput--)
+	{
+		cin >> n >> m;
+
+		if (n % 2 == 0 && n <= m)
+			ans = "L";
+		else if (n % 2 == 1 && n <= m)
+			ans = "R";
+		else if (m % 2 == 1)
+			ans = "D";
+		else
+			ans = "U";
+
+		cout << ans << "\n";
+	}
+}

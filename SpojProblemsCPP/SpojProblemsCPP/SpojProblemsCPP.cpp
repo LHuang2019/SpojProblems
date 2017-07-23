@@ -6,6 +6,6 @@
 
 int main()
 {
-	ClassicalOne::maxln();
+	ClassicalOne::trgrid();
     return 0;
 }

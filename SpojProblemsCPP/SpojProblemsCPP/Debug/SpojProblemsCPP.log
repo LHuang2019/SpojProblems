@@ -1,4 +1,5 @@
-﻿  ClassicalOne.cpp
+﻿  SpojProblemsCPP.cpp
+  ClassicalOne.cpp
 c:\users\li huang\programmingprojects\spojproblems\spojproblemscpp\spojproblemscpp\classicalone.cpp(48): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1272): note: see declaration of 'scanf'
 c:\users\li huang\programmingprojects\spojproblems\spojproblemscpp\spojproblemscpp\classicalone.cpp(52): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -25,5 +26,6 @@ c:\users\li huang\programmingprojects\spojproblems\spojproblemscpp\spojproblemsc
 c:\users\li huang\programmingprojects\spojproblems\spojproblemscpp\spojproblemscpp\classicalone.cpp(219): warning C4102: 'innerLoop': unreferenced label
 c:\users\li huang\programmingprojects\spojproblems\spojproblemscpp\spojproblemscpp\classicalone.cpp(249): warning C4018: '<': signed/unsigned mismatch
 c:\users\li huang\programmingprojects\spojproblems\spojproblemscpp\spojproblemscpp\classicalone.cpp(253): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
   SpojProblemsCPP.vcxproj -> C:\Users\Li Huang\ProgrammingProjects\SpojProblems\SpojProblemsCPP\Debug\SolutionWindows.exe
   SpojProblemsCPP.vcxproj -> C:\Users\Li Huang\ProgrammingProjects\SpojProblems\SpojProblemsCPP\Debug\SolutionWindows.pdb (Partial PDB)

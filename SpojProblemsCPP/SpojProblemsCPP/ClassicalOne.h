@@ -12,4 +12,5 @@ public:
 	static void cprmt();
 	static void hackrndm();
 	static void maxln();
+	static void trgrid();
 };
