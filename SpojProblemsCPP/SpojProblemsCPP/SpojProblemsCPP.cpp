@@ -6,6 +6,6 @@
 
 int main()
 {
-	ClassicalOne::trgrid();
+	ClassicalOne::dotaa();
     return 0;
 }

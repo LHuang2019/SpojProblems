@@ -13,4 +13,5 @@ public:
 	static void hackrndm();
 	static void maxln();
 	static void trgrid();
+	static void dotaa();
 };

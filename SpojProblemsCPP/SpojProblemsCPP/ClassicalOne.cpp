@@ -338,3 +338,22 @@ void ClassicalOne::trgrid()
 		cout << ans << "\n";
 	}
 }
+
+/* Solved classical -> DOTA HEROES, ID 10286 */
+void ClassicalOne::dotaa()
+{
+	int numInput, n, m, d, current;
+	cin >> numInput;
+	while (numInput--)
+	{
+		cin >> n >> m >> d;
+		while (n-- && m > 0)
+		{
+			cin >> current;
+			if (current > d)
+				m -= current % d == 0 ? current / d - 1 : current / d;
+		}
+
+		cout << (m <= 0 ? "YES" : "NO") << "\n";
+	}
+}
