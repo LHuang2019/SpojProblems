@@ -14,4 +14,5 @@ public:
 	static void maxln();
 	static void trgrid();
 	static void dotaa();
+	static void cadydist();
 };

@@ -6,6 +6,7 @@
 #include <set>
 #include <unordered_map>
 #include <unordered_set>
+#include <functional>
 
 using namespace std;
 
@@ -355,5 +356,34 @@ void ClassicalOne::dotaa()
 		}
 
 		cout << (m <= 0 ? "YES" : "NO") << "\n";
+	}
+}
+
+/* Solved classical problem Candy Distribution, ID 10442 */
+long long c[100000];
+long long p[100000];
+void ClassicalOne::cadydist()
+{
+	int n;
+
+	cin >> n;
+	while (n != 0) 
+	{
+		for (int i = 0; i < n; i++)
+			scanf("%lld", &c[i]);
+		
+		for (int j = 0; j < n; j++)
+			scanf("%lld", &p[j]);
+
+		sort(c, c + n);
+		sort(p, p + n, greater<long long>());
+
+		long long sum = 0;
+
+		for (int k = 0; k < n; k++)
+			sum += c[k] * p[k];
+
+		cout << sum << "\n";
+		cin >> n;
 	}
 }

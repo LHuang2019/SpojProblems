@@ -6,6 +6,6 @@
 
 int main()
 {
-	ClassicalOne::dotaa();
+	ClassicalOne::cadydist();
     return 0;
 }
